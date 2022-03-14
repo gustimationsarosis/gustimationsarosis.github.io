@@ -5,6 +5,39 @@ function dragEnd(ev) {
     updateCompSelection();
 }
 
+function selectPlayerCLass(ev) {
+    var playerId = ev.target.id;
+    var playerType = ev.target.getAttribute('data-type');
+    var playerSpec = ev.target.innerText;
+    var playerBuffs = PlayerType(playerId).raidBuffs;
+    var tableRows = document.getElementById('raidComp').rows;
+    var nextEmptyySlot = "";
+
+    //Find the next empty raid slot
+    for (var i = 0; i < tableRows.length; i++) {
+        for (var ii = 0; ii < tableRows[i].cells.length; ii++) {
+            if (tableRows[i].cells[ii].textContent == "") {
+                nextEmptyySlot = tableRows[i].cells[ii].id;
+            break;
+            }
+        }
+        if (nextEmptyySlot != "")
+            break;
+    }
+
+    if (nextEmptyySlot == "")
+        return;
+
+    drop(null,
+        {
+            player: playerId,
+            id: nextEmptyySlot,
+            spec: playerType,
+            playerText: playerSpec,
+            playerBuffs: playerBuffs
+        });
+}
+
 function drop(ev, onLoad) {
 
     var playerDescription = "";
@@ -42,7 +75,7 @@ function drop(ev, onLoad) {
     }
 
     //If moving a raid slot, clear origan
-    if (fe.charAt(0) == "r") {
+    if (fe.charAt(0) == "r" && ev != null) {
         clearRaidBox(fe);
     }
 

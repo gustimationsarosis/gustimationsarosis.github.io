@@ -1,6 +1,7 @@
 let playerGrid = document.getElementById("playerGrid");
 let raidGrid = document.getElementById("raidComp");
 
+//Raid Layout Grid
 function buildRaidTable() {
     for (i = 0; i < 5; i++) {
         var colum = raidGrid.appendChild(document.createElement('tr'));
@@ -26,6 +27,7 @@ function buildRaidTable() {
     }
 }
 
+// Player Grid
 function buildRaidSlecTable() {
     for (i = 0; i < 10; i++) {
         var colum = playerGrid.appendChild(document.createElement('tr'));
@@ -45,6 +47,7 @@ function buildRaidSlecTable() {
 
             row.setAttribute('draggable', true);
             row.setAttribute('ondragstart', 'drag(event)');
+            row.setAttribute('onclick', 'selectPlayerCLass(event)')
 
             if (playerType.raidBuffs.length > 0) {
                 for (var k = 0; k < playerType.raidBuffs.length; k++) {
