@@ -14,7 +14,7 @@ function updateCompSelection() {
     for (let row of raidCompTable.rows) {
         for (let cell of row.cells) {
             if (cell.innerText === "") {
-                continue; totalRaidComp
+                continue;
             }
             emptyRaid = false;
             UpdateRaidStructure(cell.getAttribute('data-type'));
@@ -22,9 +22,12 @@ function updateCompSelection() {
             document.getElementById("dpsSelection").innerText = "DPS: " + structure.DPS;
             document.getElementById("healerSelection").innerText = "Healers: " + structure.Healers;
 
+            var playerType = document.querySelectorAll("[data-rid=" + cell.getAttribute('data-rid') + "]")[0];
+
+
             totalRaidComp.push({ playerId: cell.getAttribute('data-rid'), RaidSLot: cell.id });
 
-            var cellBuffLlist = PlayerType(cell.getAttribute('data-rid')).raidBuffs;
+            var cellBuffLlist = PlayerType(playerType.id).raidBuffs;
             if (cellBuffLlist.length > 0) {
                 for (var iii = 0; iii < cellBuffLlist.length; iii++) {
                     totalBuffList.push(cellBuffLlist[iii]);

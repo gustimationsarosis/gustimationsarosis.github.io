@@ -13,7 +13,7 @@ function updateUrl() {
         return;
     var url = "";
     for (var i = 0; i < uslCoded.length; i++) {
-        url = url + "" + uslCoded[i].playerId + "" + uslCoded[i].RaidSLot;
+        url = url + "" + uslCoded[i].playerId + "" + uslCoded[i].RaidSLot.substring(1, 3);
 
     }
     document.location.hash = "?a=" + url;
@@ -26,21 +26,22 @@ function getUrlParameters() {
     if (params == null)
         return;
 
-    var comp = params.split('p');
-    comp.shift();
+    var chunks = [];
+    for (var i = 0, charsLength = params.length; i < charsLength; i += 3) {
+        chunks.push(params.substring(i, i + 3));
+    }
 
-    for (var i = 0; i < comp.length; i++) {
-        var urlSelector = comp[i].split('r');
-        var playerType = PlayerType("p" + urlSelector[0]);
-
+    for (var i = 0; i < chunks.length; i++) {
+        var playerType = document.querySelectorAll("[data-rid=" + chunks[i].substring(0, 1) + "]");
+        var playerData = PlayerType(playerType[0].id)
 
         drop(null,
             {
-                player: "p" + urlSelector[0],
-                id: "r" + urlSelector[1],
-                spec: playerType.type,
-                playerText: playerType.text,
-                playerBuffs: playerType.raidBuffs
+                player: playerType[0].id,
+                id: "r" + chunks[i].substring(1, 3),
+                spec: playerData.type,
+                playerText: playerData.text,
+                playerBuffs: playerData.raidBuffs
             });
     }
 }

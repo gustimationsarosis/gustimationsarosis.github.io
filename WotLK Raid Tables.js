@@ -34,12 +34,12 @@ function buildRaidSlecTable() {
 
         for (j = 0; j < 3; j++) {
             var row = colum.appendChild(document.createElement('td'));
-            var rowId = row.id = "p" + i + "" + j;
-            var playerType = PlayerType(rowId);
+            row.id = "p" + i + "" + j;
+            var playerType = PlayerType(row.id);
             row.appendChild(document.createTextNode(playerType.text));
 
             row.setAttribute('data-type', "" + playerType.type);
-            row.setAttribute('data-rid', "" + "p" + i + "" + j);
+            row.setAttribute('data-rid', playerType.id);
 
             row.classList.add('playergrid');
 
