@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>WOtLK Raid Comp Selector Tool</title>
+</head>
+<body>
+    <h1>
+        WOtLK Raid Comp Selector Tool
+    </h1>
+
+    <div tyle="overflow-x:auto;">
+        <table id="playerGrid">
+            <caption>Player selector</caption>
+        </table>
+    </div>
+    <div>
+        <table id="raidComp">
+            <caption>Raid composition</caption>
+        </table>
+        <button onclick="reset()">Clear Raid</button>
+    </div>
+
+    <div>
+        <h2>
+            Spec counter
+        </h2>
+        <ul id="raidStructure">
+        </ul>
+        <h2>
+            Buff counter
+        </h2>
+        <ul id="raidBuffs">
+        </ul>
+        <input type="hidden" id="totalRaidComp" />
+    </div>
+</body>
+</html>
+
+<style>
+    .playergrid {
+        width: 100px;
+        height: 30px;
+    }
+</style>
+
+<script src="WotLK Models.js"></script>
+<script src="WotLK Raid Tables.js"></script>
+<script src="DragUtils.js"></script>
+<script src="RaidStructureList.js"></script>
+<script src="WotLK Url Updater.js"></script>
+
+<script id="defaultId">
+    var totalRaidComp;
+
+    buildRaidTable();
+    buildRaidSlecTable();
+    buildRaidStructure();
+    getUrlParameters();
+
+</script>
