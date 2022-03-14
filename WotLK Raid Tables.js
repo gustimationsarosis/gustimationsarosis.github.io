@@ -42,9 +42,17 @@ function buildRaidSlecTable() {
             row.setAttribute('data-rid', playerType.id);
 
             row.classList.add('playergrid');
+            row.classList.add('tooltip');
+
+            var tooltipSpan = row.appendChild(document.createElement('span'));
+            tooltipSpan.classList.add('tooltiptext');
+            for (var rb = 0; rb < playerType.raidBuffs.length; rb++) {
+                tooltipSpan.innerHTML += " " +playerType.raidBuffs[rb].buff;
+            }
 
             row.style.backgroundColor = playerColour(i);
 
+            //todo: on drag only show icon??
             row.setAttribute('draggable', true);
             row.setAttribute('ondragstart', 'drag(event)');
             row.setAttribute('onclick', 'selectPlayerCLass(event)')

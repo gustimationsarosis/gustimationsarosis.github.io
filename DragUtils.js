@@ -66,10 +66,9 @@ function drop(ev, onLoad) {
     //if moiving from an empty raid slot, do noithing
     if (fromRaid !== "") {
         var player = document.getElementById(playerDescription);
-
         var targetGridSlot = document.getElementById(playerId);
         targetGridSlot.style.backgroundColor = player.style.backgroundColor;
-        targetGridSlot.innerText = player.innerText;
+        targetGridSlot.innerText = player.innerText.split('\n')[0];
         targetGridSlot.setAttribute('data-type', player.getAttribute('data-type'))
         targetGridSlot.setAttribute('data-rid', player.getAttribute('data-rid'))
     }
