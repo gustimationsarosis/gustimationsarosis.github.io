@@ -70,6 +70,10 @@ function buildRaidSlecTable() {
                 }
             }
 
+            var img = document.createElement('img');
+            img.src = playerType.icon;
+            row.appendChild(img);
+
         }
     }
 }

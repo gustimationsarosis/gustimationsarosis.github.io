@@ -46,6 +46,7 @@ function PlayerType(row) {
             playerType.text = "Blood DK";
             playerType.type = 'Tank';
             playerType.raidBuffs = [{ buff: "Horn Of Winter" }, { buff: "Abomination's Might" }];
+            playerType.icon = "Images\\spell_deathknight_bloodpresence.jpg";
             break;
         case "p01":
             playerType.id = "b";
