@@ -1,10 +1,14 @@
 function reset() {
-    document.getElementById("raidComp").innerText = '';
-    document.getElementById("raidBuffs").innerText = '';
+    var raidTable = document.getElementById("raidComp");
+    raidTable.innerText = '';
+    var cpation = raidTable.createCaption();
 
+    cpation.innerText = "Raid composition";
+    document.getElementById("raidBuffs").innerText = '';
     buildRaidTable();
     document.location.hash = "";
     document.getElementById('totalRaidComp').val = "";
+    buildRaidStructure();
 }
 
 function updateUrl() {
