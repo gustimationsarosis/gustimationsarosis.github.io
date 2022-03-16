@@ -5,6 +5,11 @@ function dragEnd(ev) {
     updateCompSelection();
 }
 
+//todo: on drag set size to 0, and drop reset size 
+//https://jsfiddle.net/cshao/cyhq3dqo/8/
+
+
+
 function selectPlayerCLass(ev) {
     var playerId = ev.target.id;
     var playerType = ev.target.getAttribute('data-type');
