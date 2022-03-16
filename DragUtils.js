@@ -60,6 +60,11 @@ function drop(ev, onLoad) {
         playerId2 = document.getElementById(playerDescription);
         playerBuffs = PlayerType(playerId2.getAttribute('data-rid')).raidBuffs;
 
+        var tip = document.getElementById("" + PlayerType(playerId2.id).id + 'tooltip');
+        tip.style.height = 'auto';
+        tip.style.display = 'block';
+        tip.style.padding = '5px 0 5px 0';
+
     }
     else {
         playerDescription = onLoad.player;
@@ -73,7 +78,8 @@ function drop(ev, onLoad) {
         var player = document.getElementById(playerDescription);
         var targetGridSlot = document.getElementById(playerId);
         targetGridSlot.style.backgroundColor = player.style.backgroundColor;
-        targetGridSlot.innerText = player.innerText.split('\n')[0];
+        var playerName = innerText = player.innerText.split('\n');
+        targetGridSlot.innerText = playerName[playerName.length -1];
         targetGridSlot.setAttribute('data-type', player.getAttribute('data-type'))
         targetGridSlot.setAttribute('data-rid', player.getAttribute('data-rid'))
     }
@@ -95,9 +101,30 @@ function clearRaidBox(id) {
     previousRaidSlot.setAttribute('data-rid', "")
 }
 
+function mousedown(ev) {
+    var test = ev.target.getAttribute('data-rid');
+    var tip = document.getElementById("" + test + 'tooltip');
+    tip.style.height = "0";
+    tip.style.display = 'none';
+    tip.style.padding = '0 0 0 0';
+}
+
+function mouseup(ev) {
+
+    var test = ev.target.getAttribute('data-rid');
+    var tip = document.getElementById("" + test + 'tooltip');
+    tip.style.height = 'auto';
+    tip.style.display = 'block';
+    tip.style.padding = '5px 0 5px 0';
+}
+
 function drag(ev) {
+
+
     ev.dataTransfer.setData("text", ev.target.id);
     fromEvent = ev.target.id;
+
+
 }
 
 function allowDrop(ev) {
