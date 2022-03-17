@@ -36,18 +36,33 @@ function buildRaidSlecTable() {
             var row = colum.appendChild(document.createElement('td'));
             row.id = "p" + i + "" + j;
             var playerType = PlayerType(row.id);
-            row.appendChild(document.createTextNode(playerType.text));
 
             row.setAttribute('data-type', "" + playerType.type);
             row.setAttribute('data-rid', playerType.id);
 
             row.classList.add('playergrid');
+            row.classList.add('tooltip');
+
+            var tooltipSpan = row.appendChild(document.createElement('span'));
+            tooltipSpan.classList.add('tooltiptext');
+            tooltipSpan.id = "" + playerType.id + "tooltip";
+            for (var rb = 0; rb < playerType.raidBuffs.length; rb++) {
+                tooltipSpan.innerHTML += " " +playerType.raidBuffs[rb].buff;
+            }
 
             row.style.backgroundColor = playerColour(i);
 
+            //todo: on drag only show icon??
             row.setAttribute('draggable', true);
             row.setAttribute('ondragstart', 'drag(event)');
-            row.setAttribute('onclick', 'selectPlayerCLass(event)')
+            row.setAttribute('onclick', 'selectPlayerCLass(event)');
+
+            row.setAttribute('onmousedown', 'mousedown(event)');
+            row.setAttribute('onmouseup', 'mouseup(event)');
+
+
+            row.appendChild(document.createTextNode(playerType.text));
+
 
             if (playerType.raidBuffs.length > 0) {
                 for (var k = 0; k < playerType.raidBuffs.length; k++) {
