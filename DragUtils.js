@@ -77,7 +77,6 @@ function drop(ev, onLoad) {
     if (fe.charAt(0) == "r" && ev != null) {
         clearRaidBox(fe);
     }
-
     updateCompSelection();
 }
 
