@@ -117,6 +117,8 @@ function allowDrop(ev) {
 
 function showHideToolTip(show, toolTip) {
     var tip = document.getElementById("" + toolTip + 'tooltip');
+    if (toolTip == "")
+        return;
 
     if (show) {
         tip.style.height = 'auto';
