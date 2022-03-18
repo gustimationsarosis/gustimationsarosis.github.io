@@ -59,6 +59,8 @@ function drop(ev, onLoad) {
         fromRaid = onLoad.playerText;
         playerBuffs = onLoad.playerBuffs;
     }
+    if (playerDescription.includes("tooltip"))
+        return;
 
     //if moiving from an empty raid slot, do noithing
     if (fromRaid !== "") {

@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>WOtLK Raid Comp Selector Tool</title>
+    <title>WotLK Raid Comp Selector Tool</title>
 </head>
 <body>
     <h1>
-        WOtLK Raid Comp Selector Tool
+        WotLK Raid Comp Selector Tool
     </h1>
 
     <div tyle="overflow-x:auto;">
@@ -37,55 +37,13 @@
 </body>
 </html>
 
-<style>
-    .playergrid {
-        width: 100px;
-        height: 30px;
-    }
-
-    .tooltip {
-        position: relative;
-    }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 100px;
-            background-color: #555;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-            .tooltip .tooltiptext::after {
-                content: "";
-                position: absolute;
-                top: 100%;
-                left: 50%;
-                margin-left: -5px;
-                border-width: 5px;
-                border-style: solid;
-                border-color: #555 transparent transparent transparent;
-            }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-</style>
-
+<link  rel="stylesheet" href="main.css"/>
 <script src="WotLK Models.js"></script>
 <script src="WotLK Raid Tables.js"></script>
 <script src="DragUtils.js"></script>
 <script src="RaidStructureList.js"></script>
 <script src="WotLK Url Updater.js"></script>
+
 
 <script id="defaultId">
     var totalRaidComp;
