@@ -42,6 +42,9 @@ function buildRaidSlecTable() {
 
             row.classList.add('playergrid');
             row.classList.add('tooltip');
+            row.classList.add('button-1');
+            // to track dragging not on raid selector
+            row.setAttribute('ondragend', 'dragEnd(event)');
 
             var tooltipSpan = row.appendChild(document.createElement('span'));
             tooltipSpan.classList.add('tooltiptext');
@@ -60,36 +63,25 @@ function buildRaidSlecTable() {
             row.setAttribute('onmousedown', 'mousedown(event)');
             row.setAttribute('onmouseup', 'mouseup(event)');
 
-
-            //row.appendChild(document.createTextNode(playerType.text));
-
-
-            if (playerType.raidBuffs.length > 0) {
+           if (playerType.raidBuffs.length > 0) {
                 for (var k = 0; k < playerType.raidBuffs.length; k++) {
                     row.setAttribute('data-raidBuff_' + (k + 1), playerType.raidBuffs[k].buff)
                 }
             }
             var textSpan = document.createElement('span');
             textSpan.innerText = playerType.text;
-            textSpan.style.position = "relative";
-            textSpan.style.top = "-8px";
+            textSpan.style.top = "-12px";
 
-            //var url = playerType.icon;
-            var iconSpan = document.createElement('span');
-            iconSpan.style.paddingLeft = "10px";
             var img = document.createElement('img');
             img.src = playerType.icon;
-            iconSpan.appendChild(img);
-            //iconSpan.style.backgroundImage = 'url(' + url + ')';
-            //iconSpan.style.width = "2em";
-            //iconSpan.style.height = "2em";
-            //iconSpan.style.display = "inline-block";
+            img.style.borderRadius = "30%";
+            img.style.marginLeft = "10px";
+            img.style.marginTop = "2px";
+            img.style.width = "30px";
+            img.style.float = "right";
 
             row.appendChild(textSpan);
-            row.appendChild(iconSpan);
-            //iconSpan.style.backroundImage = 'url(' + playerType.icon + ')';
-
-
+            row.appendChild(img);
 
         }
     }

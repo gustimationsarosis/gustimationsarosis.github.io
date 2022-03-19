@@ -1,14 +1,21 @@
 var fromEvent;
 
 function dragEnd(ev) {
-    clearRaidBox(ev.target.id);
+    var target = ev.target.id;
+    if (target.charAt(0) == "p") {
+        showHideToolTip(true, ev.target.getAttribute('data-rid'))
+        return;
+    }
+    clearRaidBox(target);
     updateCompSelection();
 }
 
 function selectPlayerCLass(ev) {
-    var playerId = ev.target.id;
-    var playerType = ev.target.getAttribute('data-type');
-    var playerSpec = ev.target.innerText;
+
+    var parentTd = ev.target.closest('td');
+    var playerId = parentTd.id;
+    var playerType = parentTd.getAttribute('data-type');
+    var playerSpec = parentTd.innerText;
     var playerBuffs = PlayerType(playerId).raidBuffs;
     var tableRows = document.getElementById('raidComp').rows;
     var nextEmptyySlot = "";
@@ -92,7 +99,9 @@ function clearRaidBox(id) {
 }
 
 function mousedown(ev) {
-    var toolTip = ev.target.getAttribute('data-rid');
+    var parentTd = ev.target.closest('td');
+
+    var toolTip = parentTd.getAttribute('data-rid');
     if (toolTip == null) {
         return;
     }
@@ -100,7 +109,9 @@ function mousedown(ev) {
 }
 
 function mouseup(ev) {
-    var toolTip = ev.target.getAttribute('data-rid');
+    var parentTd = ev.target.closest('td');
+
+    var toolTip = parentTd.getAttribute('data-rid');
     if (toolTip == null) {
         return;
     }
@@ -108,8 +119,10 @@ function mouseup(ev) {
 }
 
 function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-    fromEvent = ev.target.id;
+    var parentTd = ev.target.closest('td');
+
+    ev.dataTransfer.setData("text", parentTd.id);
+    fromEvent = parentTd.id;
 }
 
 function allowDrop(ev) {
