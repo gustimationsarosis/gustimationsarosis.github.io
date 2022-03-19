@@ -76,7 +76,7 @@ function buildRaidSlecTable() {
             img.src = playerType.icon;
             img.style.borderRadius = "30%";
             img.style.marginLeft = "10px";
-            img.style.marginTop = "2px";
+            img.style.marginTop = "4px";
             img.style.width = "30px";
             img.style.float = "right";
 
