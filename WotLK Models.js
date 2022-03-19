@@ -4,16 +4,16 @@ function playerColour(row) {
 
     switch (row) {
         case 0:
-            backGroundColour = "rgb(255,0,0)";
+            backGroundColour = "rgb(255,0,0,0.4)";
             break;
         case 1:
-            backGroundColour = "rgb(255,165,0)";
+            backGroundColour = "rgb(255,165,0,0.4)";
             break;
         case 2:
-            backGroundColour = "rgb(0,128,0)";
+            backGroundColour = "rgb(0,128,0,0.4)";
             break;
         case 3:
-            backGroundColour = "rgb(173,216,230)";
+            backGroundColour = "rgb(173,216,230,0.4)";
             break;
         case 4:
             backGroundColour = "pink";
@@ -25,10 +25,10 @@ function playerColour(row) {
             backGroundColour = "yellow";
             break;
         case 7:
-            backGroundColour = "rgb(0,0,255)";
+            backGroundColour = "rgb(0,0,255,0.4)";
             break;
         case 8:
-            backGroundColour = "rgb(128,0,128)";
+            backGroundColour = "rgb(128,0,128,0.4)";
             break;
         case 9:
             backGroundColour = "brown";
@@ -82,6 +82,7 @@ function PlayerType(row) {
             playerType.text = "Beast Mastery";
             playerType.type = 'DPS';
             playerType.raidBuffs = [{ buff: "Ferocious Inspiration" }];
+            playerType.icon = "Images\\spell_deathknight_bloodpresence.jpg";
             break;
         case "p21":
             playerType.id = "h";

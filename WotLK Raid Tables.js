@@ -47,7 +47,7 @@ function buildRaidSlecTable() {
             tooltipSpan.classList.add('tooltiptext');
             tooltipSpan.id = "" + playerType.id + "tooltip";
             for (var rb = 0; rb < playerType.raidBuffs.length; rb++) {
-                tooltipSpan.innerHTML += " " +playerType.raidBuffs[rb].buff;
+                tooltipSpan.innerHTML += " " + playerType.raidBuffs[rb].buff;
             }
 
             row.style.backgroundColor = playerColour(i);
@@ -61,18 +61,35 @@ function buildRaidSlecTable() {
             row.setAttribute('onmouseup', 'mouseup(event)');
 
 
-            row.appendChild(document.createTextNode(playerType.text));
+            //row.appendChild(document.createTextNode(playerType.text));
 
 
             if (playerType.raidBuffs.length > 0) {
                 for (var k = 0; k < playerType.raidBuffs.length; k++) {
-                    row.setAttribute('data-raidBuff_'+(k+1), playerType.raidBuffs[k].buff)
+                    row.setAttribute('data-raidBuff_' + (k + 1), playerType.raidBuffs[k].buff)
                 }
             }
+            var textSpan = document.createElement('span');
+            textSpan.innerText = playerType.text;
+            textSpan.style.position = "relative";
+            textSpan.style.top = "-8px";
 
+            //var url = playerType.icon;
+            var iconSpan = document.createElement('span');
+            iconSpan.style.paddingLeft = "10px";
             var img = document.createElement('img');
             img.src = playerType.icon;
-            row.appendChild(img);
+            iconSpan.appendChild(img);
+            //iconSpan.style.backgroundImage = 'url(' + url + ')';
+            //iconSpan.style.width = "2em";
+            //iconSpan.style.height = "2em";
+            //iconSpan.style.display = "inline-block";
+
+            row.appendChild(textSpan);
+            row.appendChild(iconSpan);
+            //iconSpan.style.backroundImage = 'url(' + playerType.icon + ')';
+
+
 
         }
     }
