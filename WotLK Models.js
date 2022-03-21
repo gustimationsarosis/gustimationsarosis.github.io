@@ -39,7 +39,7 @@ function playerColour(row) {
 }
 
 function PlayerType(row) {
-    var playerType = ({id:"", text: "", type: "", raidBuffs: [] });
+    var playerType = ({ id: "", text: "", type: "", raidBuffs: [], raidDeBuffs: [] });
     switch (row) {
         case "p00":
             playerType.id = "a";
@@ -60,12 +60,14 @@ function PlayerType(row) {
             playerType.text = "Unholy DK";
             playerType.type = 'DPS';
             playerType.icon = "Images\\spell_deathknight_unholypresence.jpg";
+            playerType.raidDeBuffs = [{ deBuff: "Ebon Plaguebringer" }];
             break;
         case "p10":
             playerType.id = "d";
             playerType.text = "Balance";
             playerType.type = 'DPS';
             playerType.raidBuffs = [{ buff: "Improved Moonkin Form" }];
+            playerType.raidDeBuffs = [{ deBuff: "Earth and Moon" }];
             playerType.icon = "Images\\spell_nature_starfall.jpg";
             break;
         case "p11":
@@ -73,6 +75,7 @@ function PlayerType(row) {
             playerType.text = "Feral";
             playerType.type = 'DPS';
             playerType.raidBuffs = [{ buff: "Leader of the Pack" }];
+            playerType.raidDeBuffs = [{ deBuff: "Faerie Fire" }];
             playerType.icon = "Images\\ability_druid_catform.jpg";
             break;
         case "p12":
@@ -134,6 +137,7 @@ function PlayerType(row) {
             playerType.text = "Protection";
             playerType.type = 'Tank';
             playerType.raidBuffs = [{ buff: "Blessing of Sanctuary" }];
+            playerType.raidDeBuffs = [{ deBuff: "Judgements of the Just" }];
             playerType.icon = "Images\\ability_paladin_shieldofthetemplar.jpg";
             break;
         case "p42":
@@ -162,6 +166,7 @@ function PlayerType(row) {
             playerType.text = "Shadow";
             playerType.type = 'DPS';
             playerType.raidBuffs = [{ buff: "Vampiric Touch" }];
+            playerType.raidDeBuffs = [{ deBuff: "Misery" }];
             playerType.icon = "Images\\spell_shadow_shadowwordpain.jpg";
             break;
         case "p60":
@@ -169,6 +174,7 @@ function PlayerType(row) {
             playerType.text = "Assassination";
             playerType.type = 'DPS';
             playerType.icon = "Images\\ability_rogue_deadlybrew.jpg";
+            playerType.raidDeBuffs = [{ deBuff: "Master Poisoner" }];
             break;
         case "p61":
             playerType.id = "t";
@@ -209,6 +215,7 @@ function PlayerType(row) {
             playerType.type = 'DPS';
             playerType.icon = "Images\\spell_shadow_deathcoil.jpg";
             playerType.raidBuffs = [{ buff: "Fel Intelligence" }];
+            playerType.raidDeBuffs = [{ deBuff: "Curse of the Elements" }];
             break;
         case "p81":
             playerType.id = "z";
@@ -216,6 +223,7 @@ function PlayerType(row) {
             playerType.type = 'DPS';
             playerType.icon = "Images\\spell_shadow_metamorphosis.jpg";
             playerType.raidBuffs = [{ buff: "Demonic Pact" }];
+            playerType.raidDeBuffs = [{ deBuff: "Curse of the Elements" }];
             break;
         case "p82":
             playerType.id = "A";
@@ -223,12 +231,14 @@ function PlayerType(row) {
             playerType.type = 'DPS';
             playerType.icon = "Images\\spell_shadow_rainoffire.jpg";
             playerType.raidBuffs = [{ buff: "Improved Imp" }];
+            playerType.raidDeBuffs = [{ deBuff: "Curse of the Elements" }];
             break;
         case "p90":
             playerType.id = "B";
             playerType.text = "Arms";
             playerType.icon = "Images\\ability_warrior_savageblow.jpg";
             playerType.type = 'DPS';
+            playerType.raidDeBuffs = [{ deBuff: "Blood Frenzy" }];
             break;
         case "p91":
             playerType.id = "C";
@@ -243,6 +253,7 @@ function PlayerType(row) {
             playerType.type = 'Tank';
             playerType.icon = "Images\\ability_warrior_defensivestance.jpg";
             playerType.raidBuffs = [{ buff: "Vigilance" }];
+            playerType.raidDeBuffs = [{ deBuff: "Sunder Amour" }, { deBuff: "Thunder Clap" }];
             break;
 
         default:

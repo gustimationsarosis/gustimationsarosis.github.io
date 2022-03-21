@@ -5,6 +5,7 @@ function reset() {
 
     cpation.innerText = "Raid composition";
     document.getElementById("raidBuffs").innerText = '';
+    document.getElementById("raidDeBuffs").innerText = '';
     buildRaidTable();
     document.location.hash = "";
     document.getElementById('totalRaidComp').val = "";

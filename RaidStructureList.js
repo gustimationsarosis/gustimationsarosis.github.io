@@ -4,11 +4,17 @@ var totalRaidComp = [];
 function updateCompSelection() {
     var totalRaidComp = [];
     var totalBuffList = [];
+    var totalDeBuffList = [];
+
     var buffList = document.getElementById('raidBuffs');
+    var deBuffList = document.getElementById('raidDeBuffs');
+
     var raidCompTable = document.getElementById("raidComp");
     var emptyRaid = true;
 
     buffList.innerHTML = "";
+    deBuffList.innerHTML = "";
+
     structure = { Tanks: 0, DPS: 0, Healers: 0 };
 
     for (let row of raidCompTable.rows) {
@@ -24,24 +30,30 @@ function updateCompSelection() {
 
             var playerType = document.querySelectorAll("[data-rid=" + cell.getAttribute('data-rid') + "]")[0];
 
-
             totalRaidComp.push({ playerId: cell.getAttribute('data-rid'), RaidSLot: cell.id });
 
-            var cellBuffLlist = PlayerType(playerType.id).raidBuffs;
-            if (cellBuffLlist.length > 0) {
-                for (var iii = 0; iii < cellBuffLlist.length; iii++) {
-                    totalBuffList.push(cellBuffLlist[iii]);
+            var cellData = PlayerType(playerType.id);
+            if (cellData.raidBuffs.length > 0) {
+                for (var iii = 0; iii < cellData.raidBuffs.length; iii++) {
+                    totalBuffList.push(cellData.raidBuffs[iii]);
+                }
+            }
+            if (cellData.raidDeBuffs.length > 0) {
+                for (var iii = 0; iii < cellData.raidDeBuffs.length; iii++) {
+                    totalDeBuffList.push(cellData.raidDeBuffs[iii]);
                 }
             }
         }
-
         if (emptyRaid) {
             buildRaidStructure();
         }
     }
 
     if (totalBuffList.length > 0) {
-        updateBuffList(totalBuffList, buffList);
+        updateBuffList(totalBuffList, buffList, 'buff');
+    }
+    if (totalDeBuffList.length > 0) {
+        updateBuffList(totalDeBuffList, deBuffList, 'deBuff');
     }
 
     document.getElementById('totalRaidComp').val = totalRaidComp;
@@ -73,14 +85,17 @@ function UpdateRaidStructure(type) {
     return
 }
 
-function updateBuffList(totalBuffList, buffList) {
-    playerBuffs = getUniqueListBy(totalBuffList, 'buff')
+function updateBuffList(totalBuffList, buffList, dataType) {
+    var playerBuffs = getUniqueListBy(totalBuffList, dataType)
 
     for (var playerBuffList = 0; playerBuffList < playerBuffs.length; playerBuffList++) {
 
         var item = buffList.appendChild(document.createElement('li'));
 
-        item.innerHTML = playerBuffs[playerBuffList].buff;
+        if (dataType == "buff")
+            item.innerHTML = playerBuffs[playerBuffList].buff;
+        else
+            item.innerHTML = playerBuffs[playerBuffList].deBuff;
     }
 }
 

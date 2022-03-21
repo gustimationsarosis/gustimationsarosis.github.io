@@ -55,7 +55,6 @@ function buildRaidSlecTable() {
 
             row.style.backgroundColor = playerColour(i);
 
-            //todo: on drag only show icon??
             row.setAttribute('draggable', true);
             row.setAttribute('ondragstart', 'drag(event)');
             row.setAttribute('onclick', 'selectPlayerCLass(event)');
@@ -63,11 +62,6 @@ function buildRaidSlecTable() {
             row.setAttribute('onmousedown', 'mousedown(event)');
             row.setAttribute('onmouseup', 'mouseup(event)');
 
-           if (playerType.raidBuffs.length > 0) {
-                for (var k = 0; k < playerType.raidBuffs.length; k++) {
-                    row.setAttribute('data-raidBuff_' + (k + 1), playerType.raidBuffs[k].buff)
-                }
-            }
             var textSpan = document.createElement('span');
             textSpan.innerText = playerType.text;
             textSpan.style.top = "-12px";
