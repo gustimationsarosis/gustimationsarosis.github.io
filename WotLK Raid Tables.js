@@ -42,12 +42,15 @@ function buildRaidSlecTable() {
 
             row.classList.add('playergrid');
             row.classList.add('tooltip');
+            row.classList.add('button-1');
+            // to track dragging not on raid selector
+            row.setAttribute('ondragend', 'dragEnd(event)');
 
             var tooltipSpan = row.appendChild(document.createElement('span'));
             tooltipSpan.classList.add('tooltiptext');
             tooltipSpan.id = "" + playerType.id + "tooltip";
             for (var rb = 0; rb < playerType.raidBuffs.length; rb++) {
-                tooltipSpan.innerHTML += " " +playerType.raidBuffs[rb].buff;
+                tooltipSpan.innerHTML += " " + playerType.raidBuffs[rb].buff;
             }
 
             row.style.backgroundColor = playerColour(i);
@@ -60,15 +63,25 @@ function buildRaidSlecTable() {
             row.setAttribute('onmousedown', 'mousedown(event)');
             row.setAttribute('onmouseup', 'mouseup(event)');
 
-
-            row.appendChild(document.createTextNode(playerType.text));
-
-
-            if (playerType.raidBuffs.length > 0) {
+           if (playerType.raidBuffs.length > 0) {
                 for (var k = 0; k < playerType.raidBuffs.length; k++) {
-                    row.setAttribute('data-raidBuff_'+(k+1), playerType.raidBuffs[k].buff)
+                    row.setAttribute('data-raidBuff_' + (k + 1), playerType.raidBuffs[k].buff)
                 }
             }
+            var textSpan = document.createElement('span');
+            textSpan.innerText = playerType.text;
+            textSpan.style.top = "-12px";
+
+            var img = document.createElement('img');
+            img.src = playerType.icon;
+            img.style.borderRadius = "30%";
+            img.style.marginLeft = "10px";
+            img.style.marginTop = "4px";
+            img.style.width = "30px";
+            img.style.float = "right";
+
+            row.appendChild(textSpan);
+            row.appendChild(img);
 
         }
     }
