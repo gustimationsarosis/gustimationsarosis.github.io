@@ -46,7 +46,6 @@
     border-style: none;
     box-sizing: border-box;
     cursor: pointer;
-    display: inline-block;
     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -75,5 +74,18 @@
 
     .button-1:active {
         color: #BBBBBB;
-        border-color: #BBBBBB;
+        border-color: #888888;
+        top: 0.1em;
+        border: 1px solid black;
+        box-shadow: 2px 2px #888888;
     }
+
+footer {
+    text-align: center;
+    padding: 3px;
+}
+
+.copyright {
+    opacity: 0.6;
+    font-size: 13px;
+}
