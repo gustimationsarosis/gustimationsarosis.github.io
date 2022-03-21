@@ -8,32 +8,36 @@
     <h1>
         WotLK Raid Comp Selector Tool
     </h1>
-
-    <div tyle="overflow-x:auto;">
-        <table id="playerGrid">
-            <caption>Player selector</caption>
-        </table>
-    </div>
-    <div>
-        <table id="raidComp">
-            <caption>Raid composition</caption>
-        </table>
-        <button onclick="reset()">Clear Raid</button>
-    </div>
-
-    <div>
-        <h2>
-            Spec counter
-        </h2>
-        <ul id="raidStructure">
-        </ul>
-        <h2>
-            Buff tracker
-        </h2>
-        <ul id="raidBuffs">
-        </ul>
-        <input type="hidden" id="totalRaidComp" />
-    </div>
+    <row style="display:inline-flex; flex-direction:column">
+        <div tyle="overflow-x:auto;">
+            <table id="playerGrid">
+                <caption>Player selector</caption>
+            </table>
+        </div>
+        <div>
+            <table id="raidComp">
+                <caption>Raid composition</caption>
+            </table>
+            <button onclick="reset()">Clear Raid</button>
+        </div>
+        <div>
+            <label>
+                Spec counter
+            </label>
+            <ul id="raidStructure">
+            </ul>
+            <input type="hidden" id="totalRaidComp" />
+        </div>
+    </row>
+    <row style="display:inline-flex">
+        <div style="margin-left: 15px">
+            <label>
+                Buff tracker
+            </label>
+            <ul id="raidBuffs">
+            </ul>
+        </div>
+    </row>
     <footer>
         <p class="copyright">
             Version 0.1 of the WotLK raid selector tool
@@ -42,7 +46,7 @@
 </body>
 </html>
 
-<link  rel="stylesheet" href="main.css"/>
+<link rel="stylesheet" href="main.css" />
 <script src="WotLK Models.js"></script>
 <script src="WotLK Raid Tables.js"></script>
 <script src="DragUtils.js"></script>
