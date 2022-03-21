@@ -59,7 +59,7 @@ function PlayerType(row) {
             playerType.id = "c";
             playerType.text = "Unholy DK";
             playerType.type = 'DPS';
-            playerType.icon = "Images\\spell_deathknight_frostpresence.jpg";
+            playerType.icon = "Images\\spell_deathknight_unholypresence.jpg";
             break;
         case "p10":
             playerType.id = "d";

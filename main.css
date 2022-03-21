@@ -63,7 +63,17 @@
     touch-action: manipulation;
 }
 
-    .button-1:hover,
+    .button-1:hover {
+        color: #DDDDDD;
+        border-color: #DDDDDD;
+    }
+
+
     .button-1:focus {
         background-color: #F082AC;
+    }
+
+    .button-1:active {
+        color: #BBBBBB;
+        border-color: #BBBBBB;
     }
