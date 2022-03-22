@@ -1,7 +1,12 @@
 var fromEvent;
 
 function dragEnd(ev) {
-    var target = ev.target.id;
+    var target;
+    if (ev.target.currentSrc?.includes("CrossIcon")) {
+        target = ev.target.closest('td').id;
+    } else
+        target = ev.target.id;
+
     if (target.charAt(0) == "p") {
         showHideToolTip(true, ev.target.getAttribute('data-rid'))
         return;
@@ -75,6 +80,16 @@ function drop(ev, onLoad) {
         targetGridSlot.innerText = playerName[playerName.length - 1];
         targetGridSlot.setAttribute('data-type', player.getAttribute('data-type'))
         targetGridSlot.setAttribute('data-rid', player.getAttribute('data-rid'))
+
+        var img = document.createElement('img');
+        img.src = "Images\\UI\\CrossIcon.png";
+        img.style.width = "20px";
+        img.style.height = "20px";
+        img.style.float = "right";
+        img.setAttribute('onmousedown', 'dragEnd(event)');
+
+        targetGridSlot.appendChild(img);
+
     }
 
     //If moving a raid slot, clear origan

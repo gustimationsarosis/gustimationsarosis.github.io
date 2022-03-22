@@ -11,11 +11,12 @@ function buildRaidTable() {
 
             row.appendChild(document.createTextNode(""));
 
-            row.style.width = '100px';
-            row.style.height = '35px';
+            row.style.width = '125px';
+            row.style.height = '40px';
 
             row.id = "r" + i + "" + j;
             row.style.backgroundColor = "#9e9e9e";
+            row.style.borderRadius = "2px";
             row.setAttribute('ondragover', 'allowDrop(event)')
             row.setAttribute('ondrop', 'drop(event)')
 
