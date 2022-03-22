@@ -50,16 +50,27 @@ function buildRaidSlecTable() {
             var tooltipSpan = row.appendChild(document.createElement('span'));
             tooltipSpan.classList.add('tooltiptext');
             tooltipSpan.id = "" + playerType.id + "tooltip";
+
+            //Buff tips
+            var toolTipHeader = tooltipSpan.appendChild(document.createElement('h3'));
+            toolTipHeader.innerHTML = "Buffs";
             for (var rb = 0; rb < playerType.raidBuffs.length; rb++) {
-                tooltipSpan.innerHTML += " " + playerType.raidBuffs[rb].buff;
+                var p = tooltipSpan.appendChild(document.createElement('p'));
+                p.innerHTML = playerType.raidBuffs[rb].buff;
+            }
+
+            //De-buff tips
+            var toolTipHeaderDebuff = tooltipSpan.appendChild(document.createElement('h3'));
+            toolTipHeaderDebuff.innerHTML = "De-Buffs";
+            for (var rb = 0; rb < playerType.raidDeBuffs.length; rb++) {
+                var p = tooltipSpan.appendChild(document.createElement('p'));
+                p.innerHTML = playerType.raidDeBuffs[rb].deBuff;
             }
 
             row.style.backgroundColor = playerColour(i);
-
             row.setAttribute('draggable', true);
             row.setAttribute('ondragstart', 'drag(event)');
             row.setAttribute('onclick', 'selectPlayerCLass(event)');
-
             row.setAttribute('onmousedown', 'mousedown(event)');
             row.setAttribute('onmouseup', 'mouseup(event)');
 
@@ -67,6 +78,7 @@ function buildRaidSlecTable() {
             textSpan.innerText = playerType.text;
             textSpan.style.top = "-12px";
 
+            //Player icon
             var img = document.createElement('img');
             img.src = playerType.icon;
             img.style.borderRadius = "30%";
