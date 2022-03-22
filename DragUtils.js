@@ -11,37 +11,32 @@ function dragEnd(ev) {
 }
 
 function selectPlayerCLass(ev) {
-
     var parentTd = ev.target.closest('td');
-    var playerId = parentTd.id;
-    var playerType = parentTd.getAttribute('data-type');
-    var playerSpec = parentTd.innerText;
-    var playerBuffs = PlayerType(playerId).raidBuffs;
+    var playerData = PlayerType(parentTd.id)
     var tableRows = document.getElementById('raidComp').rows;
     var nextEmptyySlot = "";
 
     //Find the next empty raid slot
-    for (var i = 0; i < tableRows.length; i++) {
-        for (var ii = 0; ii < tableRows[i].cells.length; ii++) {
-            if (tableRows[i].cells[ii].textContent == "") {
-                nextEmptyySlot = tableRows[i].cells[ii].id;
+    for (var ii = 0; ii < 5; ii++) {
+        for (var j = 0; j < tableRows.length; j++) {
+            if (tableRows[j].cells[ii].textContent == "") {
+                nextEmptyySlot = tableRows[j].cells[ii].id;
                 break;
             }
         }
         if (nextEmptyySlot != "")
             break;
     }
-
     if (nextEmptyySlot == "")
         return;
 
     drop(null,
         {
-            player: playerId,
+            player: parentTd.id,
             id: nextEmptyySlot,
-            spec: playerType,
-            playerText: playerSpec,
-            playerBuffs: playerBuffs
+            spec: playerData.type,
+            playerText: parentTd.innerText,
+            playerBuffs: playerData.raidBuffs
         });
 }
 

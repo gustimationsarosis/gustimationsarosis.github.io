@@ -23,6 +23,7 @@ function updateCompSelection() {
                 continue;
             }
             emptyRaid = false;
+            //todo: remove data-type from cell and use playerType method..
             UpdateRaidStructure(cell.getAttribute('data-type'));
             document.getElementById("tankSelection").innerText = "Tanks: " + structure.Tanks;
             document.getElementById("dpsSelection").innerText = "DPS: " + structure.DPS;
