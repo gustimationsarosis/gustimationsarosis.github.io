@@ -89,7 +89,6 @@ function drop(ev, onLoad) {
         img.setAttribute('onmousedown', 'dragEnd(event)');
 
         targetGridSlot.appendChild(img);
-
     }
 
     //If moving a raid slot, clear origan
