@@ -45,14 +45,15 @@ function PlayerType(row) {
             playerType.id = "a";
             playerType.text = "Blood DK";
             playerType.type = 'Tank';
-            playerType.raidBuffs = [{ buff: "Horn Of Winter" }, { buff: "Abomination's Might" }];
+            playerType.raidBuffs = [{
+                buff: "Horn Of Winter", spell: "57330&amp;buff"}, { buff: "Abomination's Might", spell: "53138&amp;buff" }];
             playerType.icon = "Images\\spell_deathknight_bloodpresence.jpg";
             break;
         case "p01":
             playerType.id = "b";
             playerType.text = "Frost DK";
             playerType.type = 'DPS';
-            playerType.raidBuffs = [{ buff: "Horn Of Winter" }, { buff: "Icy Talons" }];
+            playerType.raidBuffs = [{ buff: "Horn Of Winter", spell: "57330&amp;buff" }, { buff: "Icy Talons", spell: "50887" }];
             playerType.icon = "Images\\spell_deathknight_frostpresence.jpg";
             break;
         case "p02":
@@ -60,7 +61,7 @@ function PlayerType(row) {
             playerType.text = "Unholy DK";
             playerType.type = 'DPS';
             playerType.icon = "Images\\spell_deathknight_unholypresence.jpg";
-            playerType.raidDeBuffs = [{ deBuff: "Ebon Plaguebringer" }];
+            playerType.raidDeBuffs = [{ deBuff: "Ebon Plaguebringer", spell: "51161" }];
             break;
         case "p10":
             playerType.id = "d";
@@ -75,7 +76,7 @@ function PlayerType(row) {
             playerType.text = "Feral";
             playerType.type = 'DPS';
             playerType.raidBuffs = [{ buff: "Leader of the Pack" }];
-            playerType.raidDeBuffs = [{ deBuff: "Faerie Fire" }];
+            playerType.raidDeBuffs = [{ deBuff: "Faerie Fire", spell: "770&amp;buff" }];
             playerType.icon = "Images\\ability_druid_catform.jpg";
             break;
         case "p12":
@@ -252,8 +253,8 @@ function PlayerType(row) {
             playerType.text = "Protection";
             playerType.type = 'Tank';
             playerType.icon = "Images\\ability_warrior_defensivestance.jpg";
-            playerType.raidBuffs = [{ buff: "Vigilance" }];
-            playerType.raidDeBuffs = [{ deBuff: "Sunder Amour" }, { deBuff: "Thunder Clap" }];
+            playerType.raidBuffs = [{ buff: "Vigilance", spell:"50720&amp;buff"}];
+            playerType.raidDeBuffs = [{ deBuff: "Sunder Amour", spell: "7386&amp;buff" }, { deBuff: "Thunder Clap", spell:"47502&amp;buff" }];
             break;
 
         default:

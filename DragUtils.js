@@ -45,7 +45,7 @@ function selectPlayerCLass(ev) {
         });
 }
 
-function drop(ev, onLoad) {
+function drop(ev, onLoad, updateUrlComp = true) {
     var playerDescription = "";
     var playerId = "";
     var playerId2;
@@ -95,7 +95,7 @@ function drop(ev, onLoad) {
     if (fe.charAt(0) == "r" && ev != null) {
         clearRaidBox(fe);
     }
-    updateCompSelection();
+    updateCompSelection(updateUrlComp);
 }
 
 function clearRaidBox(id) {
