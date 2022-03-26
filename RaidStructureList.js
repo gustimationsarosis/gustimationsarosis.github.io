@@ -61,6 +61,7 @@ function updateCompSelection(updateUrlComp = true) {
     if (updateUrlComp) {
         updateUrl();
         $WowheadPower.init();
+        $WowheadPower.refreshLinks();
     }
 }
 
@@ -101,6 +102,7 @@ function updateBuffList(totalBuffList, buffList, dataType) {
                 item.innerHTML = playerBuffs[playerBuffList].buff;
             else {
                 var buff = item.appendChild(document.createElement('a'));
+                buff.setAttribute('onclick', 'preventMouseIconEvent(event)');
                 buff.setAttribute('href', '#');
                 buff.style.color = "black";
                 buff.style.textDecoration = "none";
@@ -113,7 +115,8 @@ function updateBuffList(totalBuffList, buffList, dataType) {
                 item.innerHTML = playerBuffs[playerBuffList].deBuff;
             else {
                 var buff = item.appendChild(document.createElement('a'));
-                buff.setAttribute('href', '#');
+                buff.setAttribute('onclick', 'preventMouseIconEvent(event)');
+                buff.setAttribute('href', '');
                 buff.style.color = "black";
                 buff.style.textDecoration = "none";
                 buff.setAttribute('rel', 'spell=' + playerBuffs[playerBuffList].spell)
@@ -124,4 +127,8 @@ function updateBuffList(totalBuffList, buffList, dataType) {
 
 function getUniqueListBy(buffs, key) {
     return [...new Map(buffs.map(item => [item[key], item])).values()]
+}
+
+function preventMouseIconEvent(event) {
+    event.preventDefault();
 }
