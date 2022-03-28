@@ -139,7 +139,7 @@ function PlayerType(row) {
             playerType.text = "Protection";
             playerType.type = 'Tank';
             playerType.raidBuffs = [{ buff: "Blessing of Sanctuary", spell: "20911" }];
-            playerType.raidDeBuffs = [{ deBuff: "Judgements of the Just" }];
+            playerType.raidDeBuffs = [{ deBuff: "Judgements of the Just", spell:"53696" }];
             playerType.icon = "Images\\ability_paladin_shieldofthetemplar.jpg";
             break;
         case "p42":
