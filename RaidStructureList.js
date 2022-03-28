@@ -116,7 +116,7 @@ function updateBuffList(totalBuffList, buffList, dataType) {
             else {
                 var buff = item.appendChild(document.createElement('a'));
                 buff.setAttribute('onclick', 'preventMouseIconEvent(event)');
-                buff.setAttribute('href', '');
+                buff.setAttribute('href', '#');
                 buff.style.color = "black";
                 buff.style.textDecoration = "none";
                 buff.setAttribute('rel', 'spell=' + playerBuffs[playerBuffList].spell)
