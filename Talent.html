@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>WotLK Raid Comp Selector Tool</title>
+
+    <script type="text/javascript" src="https://wotlk.evowow.com/static/widgets/power.js"></script>
+    <script>var aowow_tooltips = { "colorlinks": false, "iconizelinks": true, "renamelinks": false }</script>
+</head>
+<body>
+    <div class="row divTable">
+        <table id="talentTable0">
+        </table>
+        <table id="talentTable1">
+        </table>
+        <table id="talentTable2">
+        </table>
+    </div>
+
+</body>
+</html>
+
+<style>
+    .talentTable {
+        background-repeat: no-repeat;
+    }
+
+    .anon {
+        background: none !important;
+    }
+
+    .td {
+        padding-left: 5px;
+        padding-left: 5px;
+    }
+
+    .divTable {
+        display: flex;
+    }
+</style>
+
+
+
+<script>
+    var classTypes = {
+        dk: {
+            blood: [
+                [[49483, "url('TalentImages//deathknight//Blood//Butchery-off.jpg')"],
+                    [49491, "url('TalentImages//deathknight//Blood//Subversion-off.jpg')"],
+                    [49501, "url('TalentImages//deathknight//Blood//BladeBarrier-off.jpg')"],
+                    null],
+
+                [49483, 0, 0, null],
+
+                [0, 0, 0, null],
+                [0, 0, 0, null],
+                [0, null, 0, 0],
+                [0, null, 0, 0],
+                [null, 0, 0, null],
+                [0, 0, 0, null],
+                [0, 0, 0, null],
+                [0, 0, 0, null],
+                [null, 0, null, null],
+                [null, 0, null, null],
+
+            ],
+            frost: [
+
+                [49483, 0, 0, null],
+                [0, 0, 0, null],
+                [0, 0, 0, null],
+                [0, null, 0, 0],
+                [0, null, 0, 0],
+                [null, 0, 0, null],
+                [0, 0, 0, null],
+                [0, 0, 0, null],
+                [0, 0, 0, null],
+                [null, 0, null, null],
+                [null, 0, null, null],
+
+            ],
+            unholy: [
+
+                [49483, 0, 0, null],
+                [0, 0, 0, null],
+                [0, 0, 0, null],
+                [0, null, 0, 0],
+                [0, null, 0, 0],
+                [null, 0, 0, null],
+                [0, 0, 0, null],
+                [0, 0, 0, null],
+                [0, 0, 0, null],
+                [null, 0, null, null],
+                [null, 0, null, null],
+            ],
+
+            background: [
+                ["//deathknight//Blood//background.jpg"],
+                ["//deathknight//Frost//background.jpg"],
+                ["//deathknight//Unholy//background.jpg"]
+            ]
+        }
+    };
+
+    console.log(classTypes.dk.blood);
+    var test = "url('TalentImages" + classTypes.dk.background[0] + "')";
+    console.log(test);
+
+
+    function build(no, data, background) {
+        var playerGrid = document.getElementById("talentTable" + no);
+
+        playerGrid.style.backgroundImage = "url('TalentImages" + background + "')";
+        playerGrid.classList.add("talentTable");
+
+        for (var i = 0; i < 11; i++) {
+            var colum = playerGrid.appendChild(document.createElement('tr'));
+
+            for (var j = 0; j < 4; j++) {
+                var row = colum.appendChild(document.createElement('td'));
+                row.classList.add("td");
+                if (data[i][j] !== null) {
+                    var talentImg = document.createElement('a');
+                    talentImg.setAttribute('href', '#');
+                    talentImg.setAttribute('rel', 'spell=' + data[i][j]);
+                    talentImg.classList.add("anon");
+
+                    var toolTip = talentImg.appendChild(document.createElement('div'));
+                    var test = data[i][j][1];
+                    if (data[i][j][1] != null) {
+                        toolTip.style.backgroundImage = data[i][j][1];
+
+                    }
+                    else
+                        toolTip.style.backgroundImage = "url('TalentImages//deathknight//Blood//Butchery-off.jpg')";
+
+                    var test = data[i][j][1];
+
+                    toolTip.classList.add("talentTable");
+                    toolTip.style.width = "44px";
+                    toolTip.style.height = "46px";
+                    row.appendChild(talentImg);
+
+                }
+
+            }
+        }
+    }
+    build(0, classTypes.dk.blood, classTypes.dk.background[0]);
+    build(1, classTypes.dk.frost, classTypes.dk.background[1]);
+    build(2, classTypes.dk.unholy, classTypes.dk.background[2]);
+    var table =
+        [
+            Druid = {
+                Balance: [
+                    {
+                        Row: [{
+
+                            1: null,
+                            2: "Starlight_Wrath",
+                            3: "Genesis",
+                            4: null
+
+                        }],
+                        Row: [{
+
+                            1: null,
+                            2: "Starlight_Wrath",
+                            3: "Genesis",
+                            4: null
+
+                        }],
+                        Row: [{
+
+                            1: null,
+                            2: "Starlight_Wrath",
+                            3: "Genesis",
+                            4: null
+
+                        }],
+                        Row: [{
+
+                            1: null,
+                            2: "Starlight_Wrath",
+                            3: "Genesis",
+                            4: null
+
+                        }]
+                    }],
+                Feral: [
+                    {
+                        Row: [{
+
+                            1: null,
+                            2: "Starlight_Wrath",
+                            3: "Genesis",
+                            4: null
+
+                        }],
+                        Row: [{
+
+                            1: null,
+                            2: "Starlight_Wrath",
+                            3: "Genesis",
+                            4: null
+
+                        }],
+                        Row: [{
+
+                            1: null,
+                            2: "Starlight_Wrath",
+                            3: "Genesis",
+                            4: null
+
+                        }],
+                        Row: [{
+
+                            1: null,
+                            2: "Starlight_Wrath",
+                            3: "Genesis",
+                            4: null
+
+                        }]
+                    }]
+            }
+        ];
+
+    //console.log(table);
+
+</script>

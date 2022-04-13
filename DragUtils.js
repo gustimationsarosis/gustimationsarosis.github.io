@@ -82,7 +82,7 @@ function drop(ev, onLoad, updateUrlComp = true) {
         targetGridSlot.setAttribute('data-rid', player.getAttribute('data-rid'))
 
         var img = document.createElement('img');
-        img.src = "Images\\UI\\CrossIcon.png";
+        img.src = "https://www.scottejaye.com/content/images/2022/04/CrossIcon-3.png";
         img.style.width = "20px";
         img.style.height = "20px";
         img.style.float = "right";
