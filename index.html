@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .container.space-between {
+            justify-content: space-between;
+        }
+    </style>
     <meta charset="utf-8" />
     <title>WotLK Raid Comp Selector Tool</title>
 </head>
 <body>
+
+    <div class="dropdown">
+        <button style="width:600px" onclick="myFunction()" class="dropbtn">Dropdown</button>
+        <div style="width:600px" id="myDropdown" class="dropdown-content">
+            <div class="container space-between">
+                <a href="#" rel="item=51310"></a>
+                <a data-slot="Head">Head</a>
+                <a data-instance="Naxx">Naxx</a>
+                <a data-raidsize="10">10 Person</a>
+                <a data-diff="Hardmode/HC">Hardmode H/C</a>
+            </div>
+
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -108,5 +134,23 @@
     buildRaidSlecTable();
     buildRaidStructure();
     getUrlParameters();
+
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
 
 </script>
