@@ -1,11 +1,12 @@
 var classTypes = {
     dk: {
         blood: [
-            Slot, ID, From, 10, 25, Hardmore, HC
-            ["Head", { 40554, "VoA", false, false},
-                { 40554, "Naxx", false},
-                { 40554, "Naxx", true}
-            ],
+            //Slot, ID, From, 10, 25, Hardmore, HC
+            //["Head", { 40554, "VoA", false, false},
+            //    { 40554, "Naxx", false},
+            //    { 40554, "Naxx", true}
+            //],
+            ["Head", null, null, null],
             ["Neck", null, null, null],
             ["Sholder", null, null, null],
             ["Cape", null, null, null],

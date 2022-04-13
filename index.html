@@ -3,34 +3,100 @@
 <head>
 
     <style>
+        .dropContainer{
+            display:grid;
+        }
+
         .container {
             display: flex;
         }
+            .container.space-between {
+                justify-content: space-between;
+            }
 
-        .container.space-between {
-            justify-content: space-between;
+        .dropDownitem {
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-bottom-color: black;
         }
+
     </style>
     <meta charset="utf-8" />
     <title>WotLK Raid Comp Selector Tool</title>
 </head>
 <body>
 
-    <div class="dropdown">
-        <button style="width:600px" onclick="myFunction()" class="dropbtn">Dropdown</button>
-        <div style="width:600px" id="myDropdown" class="dropdown-content">
-            <div class="container space-between">
-                <a href="#" rel="item=51310"></a>
-                <a data-slot="Head">Head</a>
-                <a data-instance="Naxx">Naxx</a>
-                <a data-raidsize="10">10 Person</a>
-                <a data-diff="Hardmode/HC">Hardmode H/C</a>
+    <div class="dropContainer"  >
+        <div class="dropdown" data-class="warrior" data-spec="arms">
+            <button style="width:700px" onclick="myFunction(1)" class="dropbtn clickME">
+                <div class="container space-between clickME">
+                    <a class="clickME" data-slot="Head">Head</a>
+                    <a class="clickME" href="#" rel="item=51310"></a>
+                    <a class="clickME" data-instance="Naxx">Naxx</a>
+                    <a class="clickME" data-raidsize="10">10 Person</a>
+                    <a class="clickME" data-diff="Hardmode/HC">Hardmode H/C</a>
+                </div>
+            </button>
+            <div style="width:700px" id="myDropdown1" class="dropdown-content clickME">
+                <div class="container space-between">
+                    <a data-slot="Head">Head</a>
+                    <a href="#" rel="item=51310"></a>
+                    <a data-instance="Naxx">Naxx</a>
+                    <a data-raidsize="10">10 Person</a>
+                    <a data-diff="Hardmode/HC">Hardmode H/C</a>
+                </div>
+                <div class="container space-between">
+                    <a data-slot="Head">Head</a>
+                    <a href="#" rel="item=51310"></a>
+                    <a data-instance="Naxx">Naxx</a>
+                    <a data-raidsize="10">10 Person</a>
+                    <a data-diff="Hardmode/HC">Hardmode H/C</a>
+                </div>
+                <div class="container space-between">
+                    <a data-slot="Head">Head</a>
+                    <a href="#" rel="item=51310"></a>
+                    <a data-instance="Naxx">Naxx</a>
+                    <a data-raidsize="10">10 Person</a>
+                    <a data-diff="Hardmode/HC">Hardmode H/C</a>
+                </div>
             </div>
-
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+        </div>
+        <div class="dropdown" data-class="warrior" data-spec="fury">
+            <button style="width:700px" onclick="myFunction(2)" class="dropbtn clickME">
+                <div class="container space-between">
+                    <a class="clickME" data-slot="Head">Neck</a>
+                    <a class="clickME" href="#" rel="item=51310"></a>
+                    <a class="clickME" data-instance="Naxx">Naxx</a>
+                    <a class="clickME" data-raidsize="10">10 Person</a>
+                    <a class="clickME" data-diff="Hardmode/HC">Hardmode H/C</a>
+                </div>
+            </button>
+            <div style="width:700px" id="myDropdown2" class="dropdown-content">
+                <div class="container space-between">
+                    <a data-slot="Head">Neck</a>
+                    <a href="#" rel="item=51310"></a>
+                    <a data-instance="Naxx">Naxx</a>
+                    <a data-raidsize="10">10 Person</a>
+                    <a data-diff="Hardmode/HC">Hardmode H/C</a>
+                </div>
+                <div class="container space-between">
+                    <a data-slot="Head">Neck</a>
+                    <a href="#" rel="item=51310"></a>
+                    <a data-instance="Naxx">Naxx</a>
+                    <a data-raidsize="10">10 Person</a>
+                    <a data-diff="Hardmode/HC">Hardmode H/C</a>
+                </div>
+                <div class="container space-between">
+                    <a data-slot="Head">Neck</a>
+                    <a href="#" rel="item=51310"></a>
+                    <a data-instance="Naxx">Naxx</a>
+                    <a data-raidsize="10">10 Person</a>
+                    <a data-diff="Hardmode/HC">Hardmode H/C</a>
+                </div>
+            </div>
         </div>
     </div>
+
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -57,7 +123,7 @@
     </table>
 
 
-    <!--<h1>
+    <h1>
         WotLK Raid Comp Selector Tool
     </h1>
     <row style="display:inline-flex; flex-direction:column">
@@ -102,7 +168,7 @@
         <p class="copyright">
             Version 0.1.1 of the WotLK raid selector tool
         </p>
-    </footer>-->
+    </footer>
 </body>
 </html>
 
@@ -114,15 +180,17 @@
 
 
 
-<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gustimationsarosis/wotlkthings@4a392259cf536d9b008b0f566d98e152ba441a57/main.css" />-->
-<!--<script src="WotLK Models.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gustimationsarosis/wotlkthings@4a392259cf536d9b008b0f566d98e152ba441a57/main.css" />
+<script src="WotLK Models.js"></script>
 <script src="WotLK Raid Tables.js"></script>
-<script src="DragUtils.js"></script>-->
-<!--<script src="https://cdn.jsdelivr.net/gh/gustimationsarosis/wotlkthings@4a392259cf536d9b008b0f566d98e152ba441a57/DragUtils.js"></script>-->
-<!--<script src="RaidStructureList.js"></script>
-<script src="WotLK Url Updater.js"></script>-->
+<script src="DragUtils.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/gustimationsarosis/wotlkthings@4a392259cf536d9b008b0f566d98e152ba441a57/DragUtils.js"></script>
+<script src="RaidStructureList.js"></script>
+<script src="WotLK Url Updater.js"></script>
 
 <link rel="stylesheet" href="bisList.css" />
+<link rel="stylesheet" href="bisList2.css" />
+
 <script src="bisListModel.js"></script>
 <script src="bisList.js"></script>
 
@@ -135,13 +203,13 @@
     buildRaidStructure();
     getUrlParameters();
 
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
+    function myFunction(num) {
+        document.getElementById("myDropdown"+num).classList.toggle("show");
     }
 
     // Close the dropdown if the user clicks outside of it
     window.onclick = function (event) {
-        if (!event.target.matches('.dropbtn')) {
+        if (!event.target.matches('.clickME')) {
             var dropdowns = document.getElementsByClassName("dropdown-content");
             var i;
             for (i = 0; i < dropdowns.length; i++) {
