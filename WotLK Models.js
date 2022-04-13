@@ -84,6 +84,7 @@ function PlayerType(row) {
                 { buff: "Horn Of Winter", spell: "57330&amp;buff" },
                 { buff: "Abomination's Might", spell: "53138&amp;buff" }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_deathknight_bloodpresence.jpg";
+
             break;
         case "p01":
             playerType.id = "b";
@@ -93,6 +94,7 @@ function PlayerType(row) {
                 { buff: "Horn Of Winter", spell: "57330&amp;buff" },
                 { buff: "Icy Talons", spell: "50887" }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_deathknight_frostpresence.jpg";
+
             break;
         case "p02":
             playerType.id = "c";
@@ -101,6 +103,7 @@ function PlayerType(row) {
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_deathknight_unholypresence.jpg";
             playerType.raidDeBuffs = [
                 { deBuff: "Ebon Plaguebringer", spell: "51161" }];
+
             break;
         case "p10":
             playerType.id = "d";
@@ -111,6 +114,7 @@ function PlayerType(row) {
             playerType.raidDeBuffs = [
                 { deBuff: "Earth and Moon", spell: "spell=48511" }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_nature_starfall.jpg";
+
             break;
         case "p11":
             playerType.id = "e";
@@ -121,6 +125,7 @@ function PlayerType(row) {
             playerType.raidDeBuffs = [
                 { deBuff: "Faerie Fire", spell: "770&amp;buff" }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/ability_druid_catform.jpg";
+
             break;
         case "p12":
             playerType.id = "f";
@@ -129,6 +134,7 @@ function PlayerType(row) {
             playerType.raidBuffs = [
                 { buff: "Tree Of Life", spell: "33891&amp;buff" }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_nature_healingtouch.jpg";
+
             break;
         case "p20":
             playerType.id = "g";
@@ -137,6 +143,7 @@ function PlayerType(row) {
             playerType.raidBuffs = [
                 { buff: "Ferocious Inspiration", spell: "75447&amp;buff" }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/ability_hunter_focusedaim.jpg";
+
             break;
         case "p21":
             playerType.id = "h";
@@ -145,6 +152,7 @@ function PlayerType(row) {
             playerType.raidBuffs = [
                 { buff: "Trueshot Aura", spell: "19506&amp;buff" }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/ability_hunter_aimedshot.jpg";
+
             break;
         case "p22":
             playerType.id = "i";
@@ -153,6 +161,7 @@ function PlayerType(row) {
             playerType.raidBuffs = [
                 { buff: "Hunting Party", spell: "53292" }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/ability_hunter_snipershot.jpg";
+
             break;
         case "p30":
             playerType.id = "j";
@@ -161,6 +170,7 @@ function PlayerType(row) {
             playerType.raidBuffs = [
                 { buff: "Arcane Empowerment", spell: "31583&amp;buff" }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_holy_magicalsentry.jpg";
+
             break;
         case "p31":
             playerType.id = "k";
@@ -168,18 +178,21 @@ function PlayerType(row) {
             playerType.type = 'DPS';
             playerType.raidBuffs = [{ buff: "Enduring Winter", spell: "44561" }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_frost_frostbolt02.jpg";
+
             break;
         case "p32":
             playerType.id = "l";
             playerType.text = "Fire";
             playerType.type = 'DPS';
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_fire_firebolt02.jpg";
+
             break;
         case "p40":
             playerType.id = "m";
             playerType.text = "Holy";
             playerType.type = 'Healer';
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_holy_holybolt.jpg";
+
             break;
         case "p41":
             playerType.id = "n";
@@ -190,6 +203,7 @@ function PlayerType(row) {
             playerType.raidDeBuffs = [
                 { deBuff: "Judgements of the Just", spell: "53696" }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/ability_paladin_shieldofthetemplar.jpg";
+
             break;
         case "p42":
             playerType.id = "o";
@@ -200,6 +214,7 @@ function PlayerType(row) {
                 { buff: "Sanctified Retribution", spell: "31869" },
                 { buff: "Swift Retribution", spell: "53648" }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_holy_auraoflight.jpg";
+
             break;
         case "p50":
             playerType.id = "p";
@@ -209,6 +224,7 @@ function PlayerType(row) {
                 { buff: "Renewed Hope", spell: "57470" },
                 { buff: "Inspiration", spell: "15363" }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_holy_powerwordshield.jpg";
+
             break;
         case "p51":
             playerType.id = "q";
@@ -217,6 +233,7 @@ function PlayerType(row) {
             playerType.raidBuffs = [
                 { buff: "Inspiration", spell: "15363" }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_holy_guardianspirit.jpg";
+
             break;
         case "p52":
             playerType.id = "r";
@@ -227,6 +244,7 @@ function PlayerType(row) {
             playerType.raidDeBuffs = [
                 { deBuff: "Misery", spell: "33191" }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_shadow_shadowwordpain.jpg";
+
             break;
         case "p60":
             playerType.id = "s";
@@ -235,18 +253,21 @@ function PlayerType(row) {
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/ability_rogue_deadlybrew.jpg";
             playerType.raidDeBuffs = [
                 { deBuff: "Master Poisoner", spell: "20" }];
+
             break;
         case "p61":
             playerType.id = "t";
             playerType.text = "Combat";
             playerType.type = 'DPS';
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/ability_rogue_waylay.jpg";
+
             break;
         case "p62":
             playerType.id = "u";
             playerType.text = "Sublety";
             playerType.type = 'DPS';
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/ability_stealth.jpg";
+
             break;
         case "p70":
             playerType.id = "v";
@@ -256,6 +277,7 @@ function PlayerType(row) {
                 { buff: "Totem of Wrath", spell: "30706" },
                 { buff: "Elemental Oath", spell: "51470" }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_nature_lightning.jpg";
+
             break;
         case "p71":
             playerType.id = "w";
@@ -265,6 +287,7 @@ function PlayerType(row) {
             playerType.raidBuffs = [
                 { buff: "Unleashed Rage", spell: "30809&amp;buff" },
                 { buff: "Improved Windfury Totem", spell: "29193" }];
+
             break;
         case "p72":
             playerType.id = "x";
@@ -275,6 +298,7 @@ function PlayerType(row) {
                 { buff: "Ancestral Healing", spell: "16240" },
                 { buff: "Mana Spring Totem", spell: "58774" },
                 { buff: "Restorative Totems", spell: "16206" }];
+
             break;
         case "p80":
             playerType.id = "y";
@@ -286,6 +310,7 @@ function PlayerType(row) {
             ];
             playerType.raidDeBuffs = [
                 { deBuff: "Curse of the Elements", spell: "47865" }];
+
             break;
         case "p81":
             playerType.id = "z";
@@ -296,6 +321,7 @@ function PlayerType(row) {
                 { buff: "Demonic Pact", spell: "47240" }];
             playerType.raidDeBuffs = [
                 { deBuff: "Curse of the Elements", spell: "47865&amp;buff" }];
+
             break;
         case "p82":
             playerType.id = "A";
@@ -304,11 +330,13 @@ function PlayerType(row) {
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_shadow_rainoffire.jpg";
             playerType.raidDeBuffs = [
                 { deBuff: "Curse of the Elements", spell: "47865&amp;buff" }];
+
             break;
         case "p90":
             playerType.id = "B";
             playerType.text = "Arms";
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/ability_warrior_savageblow.jpg";
+
             playerType.type = 'DPS';
             playerType.raidDeBuffs = [{ deBuff: "Blood Frenzy", spell: "29859" }];
             break;
@@ -319,6 +347,7 @@ function PlayerType(row) {
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/ability_warrior_innerrage.jpg";
             playerType.raidBuffs = [
                 { buff: "Commanding Presence", spell: "12861" }];
+
             break;
         case "p92":
             playerType.id = "D";
@@ -329,6 +358,7 @@ function PlayerType(row) {
             playerType.raidDeBuffs = [
                 { deBuff: "Sunder Amour", spell: "7386&amp;buff" },
                 { deBuff: "Thunder Clap", spell: "47502&amp;buff" }];
+
             break;
 
         default:
