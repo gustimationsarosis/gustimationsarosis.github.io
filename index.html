@@ -5,7 +5,33 @@
     <title>WotLK Raid Comp Selector Tool</title>
 </head>
 <body>
-    <h1>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a onclick="setClassSpec(this)" data-class="mage" data-spec="arcane" href="#">Mage</a>
+        <a href="#">Shaman</a>
+        <a onclick="setClassSpec(this)" data-class="dk" data-spec="blood" href="#">Death Knight</a>
+        <a href="#">Druid</a>
+        <a href="#">Preist</a>
+        <a href="#">Warrior</a>
+        <a href="#">Rogue</a>
+        <a href="#">Hunter</a>
+        <a href="#">Paladin</a>
+        <a href="#">Warlock</a>
+    </div>
+
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Class</span>
+
+    <div class="navbar">
+        <a id="class1" onclick="setClassSpec(this)" data-spec="arcane" data-class="mage" class="active" href="#"><i class="fa fa-fw fa-search"></i> Spec 1</a>
+        <a id="class2" onclick="setClassSpec(this)" data-spec="fire" data-class="mage" href="#"><i class="fa fa-fw fa-envelope"></i> Spec 2</a>
+        <a id="class3" onclick="setClassSpec(this)" data-spec="frost" data-class="mage" href="#"><i class="fa fa-fw fa-user"></i> Spec 3</a>
+    </div>
+    <table id="bisListTable">
+    </table>
+
+
+    <!--<h1>
         WotLK Raid Comp Selector Tool
     </h1>
     <row style="display:inline-flex; flex-direction:column">
@@ -50,27 +76,34 @@
         <p class="copyright">
             Version 0.1.1 of the WotLK raid selector tool
         </p>
-    </footer>
+    </footer>-->
 </body>
 </html>
 
 
 <script type="text/javascript" src="https://wotlk.evowow.com/static/widgets/power.js"></script>
 <script>var aowow_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": true }</script>
-
 <link rel="stylesheet" href="main.css" />
+
+
+
+
 <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gustimationsarosis/wotlkthings@4a392259cf536d9b008b0f566d98e152ba441a57/main.css" />-->
-<script src="WotLK Models.js"></script>
+<!--<script src="WotLK Models.js"></script>
 <script src="WotLK Raid Tables.js"></script>
-<script src="DragUtils.js"></script>
+<script src="DragUtils.js"></script>-->
 <!--<script src="https://cdn.jsdelivr.net/gh/gustimationsarosis/wotlkthings@4a392259cf536d9b008b0f566d98e152ba441a57/DragUtils.js"></script>-->
-<script src="RaidStructureList.js"></script>
-<script src="WotLK Url Updater.js"></script>
+<!--<script src="RaidStructureList.js"></script>
+<script src="WotLK Url Updater.js"></script>-->
+
+<link rel="stylesheet" href="bisList.css" />
+<script src="bisListModel.js"></script>
+<script src="bisList.js"></script>
+
 
 
 <script id="defaultId">
     var totalRaidComp;
-
     buildRaidTable();
     buildRaidSlecTable();
     buildRaidStructure();
