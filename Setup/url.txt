@@ -1,0 +1,11 @@
+https://cdn.jsdelivr.net/gh/gustimationsarosis/wotlkthings@4a392259cf536d9b008b0f566d98e152ba441a57/main.css
+
+https://cdn.jsdelivr.net/gh/gustimationsarosis/wotlkthings@4a392259cf536d9b008b0f566d98e152ba441a57/DragUtils.js
+
+https://cdn.jsdelivr.net/gh/gustimationsarosis/wotlkthings@4a392259cf536d9b008b0f566d98e152ba441a57/RaidStructureList.js
+
+https://cdn.jsdelivr.net/gh/gustimationsarosis/wotlkthings@4a392259cf536d9b008b0f566d98e152ba441a57/WotLK%20Models.js
+
+https://cdn.jsdelivr.net/gh/gustimationsarosis/wotlkthings@4a392259cf536d9b008b0f566d98e152ba441a57/WotLK%20Raid%20Tables.js
+
+https://cdn.jsdelivr.net/gh/gustimationsarosis/wotlkthings@4a392259cf536d9b008b0f566d98e152ba441a57/WotLK%20Url%20Updater.js

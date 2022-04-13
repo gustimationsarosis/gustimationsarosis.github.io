@@ -45,7 +45,7 @@ function selectPlayerCLass(ev) {
         });
 }
 
-function drop(ev, onLoad) {
+function drop(ev, onLoad, updateUrlComp = true) {
     var playerDescription = "";
     var playerId = "";
     var playerId2;
@@ -82,7 +82,7 @@ function drop(ev, onLoad) {
         targetGridSlot.setAttribute('data-rid', player.getAttribute('data-rid'))
 
         var img = document.createElement('img');
-        img.src = "Images\\UI\\CrossIcon.png";
+        img.src = "https://www.scottejaye.com/content/images/2022/04/CrossIcon-3.png";
         img.style.width = "20px";
         img.style.height = "20px";
         img.style.float = "right";
@@ -95,7 +95,7 @@ function drop(ev, onLoad) {
     if (fe.charAt(0) == "r" && ev != null) {
         clearRaidBox(fe);
     }
-    updateCompSelection();
+    updateCompSelection(updateUrlComp);
 }
 
 function clearRaidBox(id) {

@@ -46,7 +46,9 @@ function getUrlParameters() {
                 id: "r" + chunks[i].substring(1, 3),
                 spec: playerData.type,
                 playerText: playerData.text,
-                playerBuffs: playerData.raidBuffs
-            });
+                playerBuffs: playerData.raidBuffs                
+            },
+            updateUrlComp = false
+        );
     }
 }

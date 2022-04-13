@@ -8,43 +8,43 @@
     <h1>
         WotLK Raid Comp Selector Tool
     </h1>
-        <row style="display:inline-flex; flex-direction:column">
-            <div>
-                <table id="playerGrid">
-                    <caption>Player selector</caption>
-                </table>
-            </div>
-            <div>
-                <table id="raidComp">
-                    <caption>Raid composition</caption>
-                </table>
-                <button onclick="reset()">Clear Raid</button>
-            </div>
-            <div>
-                <label>
-                    Spec counter
-                </label>
-                <ul id="raidStructure">
-                </ul>
-                <input type="hidden" id="totalRaidComp" />
-            </div>
-        </row>
-        <row style="display:inline-flex">
-            <div style="margin-left: 15px">
-                <label>
-                    Buff tracker
-                </label>
-                <ul id="raidBuffs">
-                </ul>
-            </div>
-            <div style="margin-left: 15px">
-                <label>
-                    De-Buff tracker
-                </label>
-                <ul id="raidDeBuffs">
-                </ul>
-            </div>
-        </row>
+    <row style="display:inline-flex; flex-direction:column">
+        <div>
+            <table id="playerGrid">
+                <caption>Player selector</caption>
+            </table>
+        </div>
+        <div>
+            <table id="raidComp">
+                <caption>Raid composition</caption>
+            </table>
+            <button onclick="reset()">Clear Raid</button>
+        </div>
+        <div>
+            <label>
+                Spec counter
+            </label>
+            <ul id="raidStructure">
+            </ul>
+            <input type="hidden" id="totalRaidComp" />
+        </div>
+    </row>
+    <row style="display:inline-flex">
+        <div style="margin-left: 15px">
+            <label>
+                Buff tracker
+            </label>
+            <ul id="raidBuffs">
+            </ul>
+        </div>
+        <div style="margin-left: 15px">
+            <label>
+                De-Buff tracker
+            </label>
+            <ul id="raidDeBuffs">
+            </ul>
+        </div>
+    </row>
 
     <footer>
         <p class="copyright">
@@ -54,10 +54,16 @@
 </body>
 </html>
 
+
+<script type="text/javascript" src="https://wotlk.evowow.com/static/widgets/power.js"></script>
+<script>var aowow_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": true }</script>
+
 <link rel="stylesheet" href="main.css" />
+<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gustimationsarosis/wotlkthings@4a392259cf536d9b008b0f566d98e152ba441a57/main.css" />-->
 <script src="WotLK Models.js"></script>
 <script src="WotLK Raid Tables.js"></script>
 <script src="DragUtils.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/gh/gustimationsarosis/wotlkthings@4a392259cf536d9b008b0f566d98e152ba441a57/DragUtils.js"></script>-->
 <script src="RaidStructureList.js"></script>
 <script src="WotLK Url Updater.js"></script>
 

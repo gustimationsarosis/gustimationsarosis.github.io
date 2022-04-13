@@ -1,7 +1,7 @@
 var structure = { Tanks: 0, DPS: 0, Healers: 0 };
 var totalRaidComp = [];
 
-function updateCompSelection() {
+function updateCompSelection(updateUrlComp = true) {
     var totalRaidComp = [];
     var totalBuffList = [];
     var totalDeBuffList = [];
@@ -58,7 +58,11 @@ function updateCompSelection() {
     }
 
     document.getElementById('totalRaidComp').val = totalRaidComp;
-    updateUrl();
+    if (updateUrlComp) {
+        updateUrl();
+        $WowheadPower.init();
+        $WowheadPower.refreshLinks();
+    }
 }
 
 function buildRaidStructure() {
@@ -93,13 +97,38 @@ function updateBuffList(totalBuffList, buffList, dataType) {
 
         var item = buffList.appendChild(document.createElement('li'));
 
-        if (dataType == "buff")
-            item.innerHTML = playerBuffs[playerBuffList].buff;
-        else
-            item.innerHTML = playerBuffs[playerBuffList].deBuff;
+        if (dataType == "buff") {
+            if (playerBuffs[playerBuffList].spell == null)
+                item.innerHTML = playerBuffs[playerBuffList].buff;
+            else {
+                var buff = item.appendChild(document.createElement('a'));
+                buff.setAttribute('onclick', 'preventMouseIconEvent(event)');
+                buff.setAttribute('href', '#');
+                buff.style.color = "black";
+                buff.style.textDecoration = "none";
+                buff.setAttribute('rel', 'spell=' + playerBuffs[playerBuffList].spell)
+            }
+
+        }
+        else {
+            if (playerBuffs[playerBuffList].spell == null)
+                item.innerHTML = playerBuffs[playerBuffList].deBuff;
+            else {
+                var buff = item.appendChild(document.createElement('a'));
+                buff.setAttribute('onclick', 'preventMouseIconEvent(event)');
+                buff.setAttribute('href', '#');
+                buff.style.color = "black";
+                buff.style.textDecoration = "none";
+                buff.setAttribute('rel', 'spell=' + playerBuffs[playerBuffList].spell)
+            }
+        }
     }
 }
 
 function getUniqueListBy(buffs, key) {
     return [...new Map(buffs.map(item => [item[key], item])).values()]
+}
+
+function preventMouseIconEvent(event) {
+    event.preventDefault();
 }
