@@ -1,52 +1,48 @@
 <head>
-
     <meta charset="utf-8" />
     <title>WotLK Raid Comp Selector Tool</title>
 </head>
 <body>
-
-    <div onclick="myFunction2(event, 3)" style="cursor:pointer" class="container panelSpacing selecterDropDown">
-        <div class="dropdown">
-            <div class="dropitem filterDropDown">
-                <div class="container space-between">
-                    <a data-class="warrior">Warrior</a>
+    <div class="container panelSpacing">
+        <div onclick="myFunction2(event, 3)" style="cursor:pointer" class=" selecterDropDown">
+            <div class="dropdown">
+                <div class="dropitem filterDropDown">
+                    <div class="container space-between">
+                        <a data-class="warrior">Warrior</a>
+                    </div>
                 </div>
-            </div>
-            <div id="myDropdown3" style="position:absolute" class="dropdown-content ">
-                <div onclick="selectNewClass(this)" data-spec="arcane" data-class="mage" class="itemSelectBtn">
-                    <a>Mage</a>
-                </div>
-                <div class="itemSelectBtn">
-                    <a data-class="hunter">Druid</a>
-                </div>
-                <div class="itemSelectBtn">
-                    <a data-class="hunter">Mage</a>
-                </div>
-                <div class="itemSelectBtn">
-                    <a data-class="hunter">Preist</a>
+                <div id="myDropdown3" style="position:absolute" class="dropdown-content ">
+                    <div onclick="selectNewClass(this)" data-spec="arcane" data-class="mage" class="itemSelectBtn">
+                        <a>Mage</a>
+                    </div>
+                    <div class="itemSelectBtn">
+                        <a onclick="selectNewClass(this)" data-spec="blood" data-class="dk" >Death Knight</a>
+                    </div>
+                    <div class="itemSelectBtn">
+                        <a data-class="mage">Mage</a>
+                    </div>
+                    <div class="itemSelectBtn">
+                        <a data-class="hunter">Preist</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="dropdown filterDropDown">
+
+        <div id="specList" onclick="myFunction2(event, 4)" class="dropdown filterDropDown">
             <div class="dropitem">
                 <div class="container space-between">
                     <a data-class="warrior">Arms</a>
-                    <button class="dropbtn" onclick="myFunction(event, 4)"> < </button>
                 </div>
             </div>
             <div id="myDropdown4" style="position:absolute" class="dropdown-content ">
-                <div class="container space-between">
+                <div class="itemSelectBtn">
                     <a data-class="warrior">Fury</a>
-
                 </div>
-                <div class="container space-between">
+                <div class="itemSelectBtn">
                     <a data-class="warrior">Protection</a>
-
                 </div>
-
             </div>
         </div>
-
     </div>
 
     <div class="container panelSpacing">

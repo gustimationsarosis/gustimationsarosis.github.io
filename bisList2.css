@@ -170,3 +170,7 @@ input:checked + .slider:before {
 .panelSpacing{
     margin-bottom:20px;
 }
+
+.dropDownSelectList{
+    position:absolute;
+}
