@@ -24,37 +24,51 @@ function filterValues() {
 buildItemTable();
 
 function selectNewClass(event) {
+
     var classNameData = event.getAttribute('data-class');
     var classSpecData = event.getAttribute('data-spec');
 
+    document.getElementById('playerSelectTitle').innerHTML = event.innerHTML;
     var classSpec = classTypes[classNameData];
+
     classSpec = classSpec[classSpecData];
     model = classSpec;
     buildItemTable();
     setSpecDropDown(classNameData);
 }
 
+
+function selectNewspec(event) {
+
+    var classNameData = event.getAttribute('data-class');
+    var classSpecData = event.getAttribute('data-spec');
+
+    document.getElementById('specSelectTitle').innerHTML = event.innerHTML;
+
+    var classSpec = classTypes[classNameData];
+    classSpec = classSpec[classSpecData];
+    model = classSpec;
+    buildItemTable();
+}
+
 function setSpecDropDown(classNameData) {
     var specList = document.getElementById('specList');
     specList.innerHTML = "";
     var itemDearder;
+    const classType = classTypes[classNameData];
+    var index = Object.keys(classType).length;
 
-    const test = classTypes[classNameData];
-    var index = Object.keys(test).length;
+    itemDearder = specList.appendChild(document.createElement('div'));
+    itemDearder.classList.add('dropitem', 'filterDropDown');
+    var itemContainer = itemDearder.appendChild(document.createElement('div'));
+    itemContainer.classList.add('container', 'space-between');
+    var a = itemContainer.appendChild(document.createElement('a'));
+    a.setAttribute('data-class', Object.keys(classType)[i]);
+    a.innerHTML = Object.keys(classType)[0];
+    a.id = "specSelectTitle";
+
     for (var i = 0; i < index; i++) {
-        var test2 = Object.keys(test)[i];
-
         if (i == 0) {
-            itemDearder = specList.appendChild(document.createElement('div'));
-            itemDearder.classList.add('dropitem');
-            var itemContainer = itemDearder.appendChild(document.createElement('div'));
-            itemContainer.classList.add('container', 'space-between');
-            var a = itemContainer.appendChild(document.createElement('a'));
-            a.setAttribute('data-class', Object.keys(test)[i]);
-            a.innerHTML = Object.keys(test)[i];
-            continue;
-        }
-        else if (i == 1) {
             itemDearder = specList.appendChild(document.createElement('div'));
             itemDearder.classList.add('dropdown-content');
             itemDearder.id = "myDropdown4";
@@ -63,11 +77,13 @@ function setSpecDropDown(classNameData) {
 
         var itemContainer = itemDearder.appendChild(document.createElement('div'));
         itemContainer.classList.add('itemSelectBtn');
-        var a = itemContainer.appendChild(document.createElement('a'));
-        a.setAttribute('data-class', Object.keys(test)[i]);
-        a.innerHTML = Object.keys(test)[i];
+        itemContainer.setAttribute('onclick', 'selectNewspec(this)');
+        itemContainer.setAttribute('data-spec', Object.keys(classType)[i]);
+        itemContainer.setAttribute('data-class', classNameData);
 
-    //    var test = model;
+        var a = itemContainer.appendChild(document.createElement('a'));
+        a.innerHTML = Object.keys(classType)[i];
+
     }
 }
 
@@ -85,6 +101,7 @@ function buildItemTable() {
 
     var table = document.getElementById('itemTable');
     table.innerHTML = "";
+    var strippedCounter = 0;
 
     var itemContainerI = 0;
     for (var key in model) {
@@ -95,12 +112,17 @@ function buildItemTable() {
         var itemContainerI = 0;
         var itemCounter = 0;
         for (var i = 0; i < items.length; i++) {
-            if (items[i][1] == "Nax" && naxFilter == "true") {
+            if (items[i][1] == "Nax" && naxFilter == "false") {
                 continue;
             }
             if (itemContainerI == 0) { //first item
                 dropItem = document.createElement('div');
                 dropItem.classList.add('dropitem');
+                if (strippedCounter % 2)
+                    dropItem.style.backgroundColor = " #262626";
+                else
+                    dropItem.style.backgroundColor = " #3e3e3e";
+
                 itemContainerI++;
             }
             else if (itemContainerI == 1) {//second item onwards
@@ -120,6 +142,7 @@ function buildItemTable() {
             itemCounter++;
 
         }
+        strippedCounter++
     }
     $WowheadPower.refreshLinks();
 }
@@ -164,4 +187,3 @@ function createItem(itemListContainer, item, key, i) {
     }
 
 }
-

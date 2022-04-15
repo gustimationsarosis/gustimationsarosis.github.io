@@ -3,12 +3,12 @@
     <title>WotLK Raid Comp Selector Tool</title>
 </head>
 <body>
-    <div class="container panelSpacing">
+    <div class="container panelSpacing" style="justify-content:space-evenly">
         <div onclick="myFunction2(event, 3)" style="cursor:pointer" class=" selecterDropDown">
             <div class="dropdown">
                 <div class="dropitem filterDropDown">
                     <div class="container space-between">
-                        <a data-class="warrior">Warrior</a>
+                        <a id="playerSelectTitle">Death Knight</a>
                     </div>
                 </div>
                 <div id="myDropdown3" style="position:absolute" class="dropdown-content ">
@@ -16,7 +16,7 @@
                         <a>Mage</a>
                     </div>
                     <div class="itemSelectBtn">
-                        <a onclick="selectNewClass(this)" data-spec="blood" data-class="dk" >Death Knight</a>
+                        <a onclick="selectNewClass(this)" data-spec="blood" data-class="dk">Death Knight</a>
                     </div>
                     <div class="itemSelectBtn">
                         <a data-class="mage">Mage</a>
@@ -28,49 +28,69 @@
             </div>
         </div>
 
-        <div id="specList" onclick="myFunction2(event, 4)" class="dropdown filterDropDown">
-            <div class="dropitem">
+        <div id="specList" style="cursor:pointer" onclick="myFunction2(event, 4)" class="dropdown filterDropDown">
+            <div class="dropitem filterDropDown">
                 <div class="container space-between">
-                    <a data-class="warrior">Arms</a>
+                    <a id="specSelectTitle" data-class="dk">Blood</a>
                 </div>
             </div>
             <div id="myDropdown4" style="position:absolute" class="dropdown-content ">
                 <div class="itemSelectBtn">
-                    <a data-class="warrior">Fury</a>
+                    <a data-class="dk">Frost</a>
                 </div>
                 <div class="itemSelectBtn">
-                    <a data-class="warrior">Protection</a>
+                    <a data-class="dk">Unholoy</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="container panelSpacing">
-        Naxx10
-        <label class="switch">
-            <input onclick="setFilters(this)" id="NaxxFilter" type="checkbox" value="false">
-            <span class="slider round"> </span>
+    <div class="container panelSpacing ">
+        <div class="row">
+            <label class="sliderLayout">
+                Naxx 10
+            </label>
+
+            <label class="switch">
+                <input onclick="setFilters(this)" id="NaxxFilter" type="checkbox" value="true" checked>
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <label class="sliderLayout">
+            Naxx 25
+            <label class="switch">
+                <input onclick="setFilters(this)" id="" type="checkbox" value="true" checked>
+                <span class="slider round"></span>
+            </label>
         </label>
-        Naxx25
-        <label class="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
+        <label class="sliderLayout">
+            Uldar 10
+            <label class="switch">
+                <input onclick="setFilters(this)" id="" type="checkbox" value="false">
+                <span class="slider round"></span>
+            </label>
         </label>
-        <label class="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
+        <label class="sliderLayout">
+            Uldar 25
+            <label class="switch">
+                <input onclick="setFilters(this)" id="" type="checkbox" value="false">
+                <span class="slider round"></span>
+            </label>
         </label>
-        <label class="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
+        <label class="sliderLayout">
+            ToC 10
+            <label class="switch">
+                <input onclick="setFilters(this)" id="" type="checkbox" value="false">
+                <span class="slider round"></span>
+            </label>
         </label>
-        <label class="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
-        </label>
-        <label class="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
+        <label class="sliderLayout">
+            ToC 25
+            <label class="switch">
+                <input onclick="setFilters(this)" id="" type="checkbox" value="false">
+                <span class="slider round"></span>
+            </label>
         </label>
     </div>
 
@@ -78,84 +98,6 @@
 
     </div>
 
-    <div class="dropContainer panelSpacing" id="itemTable2">
-        <div class="dropdown" data-class="warrior" data-spec="arms">
-            <div class="dropitem">
-                <div class="container space-between">
-                    <a data-slot="Head">Head</a>
-                    <a href="#" rel="item=51310"></a>
-                    <a data-instance="Naxx">Naxx</a>
-                    <a data-raidsize="10">10 Person</a>
-                    <a data-diff="Hardmode/HC">Hardmode H/C</a>
-                    <button class="dropbtn" onclick="myFunction(event, 1111)"> < </button>
-                </div>
-            </div>
-            <div id="myDropdowns1111" class="dropdown-content ">
-                <div class="container space-between">
-                    <a data-slot="Head">Head</a>
-                    <a href="#" rel="item=51310"></a>
-                    <a data-instance="Naxx">Naxx</a>
-                    <a data-raidsize="10">10 Person</a>
-                    <a data-diff="Hardmode/HC">Hardmode H/C</a>
-                    <a class="dropItemSpacer">  </a>
-                </div>
-                <div class="container space-between">
-                    <a data-slot="Head">Head</a>
-                    <a href="#" rel="item=51310"></a>
-                    <a data-instance="Naxx">Naxx</a>
-                    <a data-raidsize="10">10 Person</a>
-                    <a data-diff="Hardmode/HC">Hardmode H/C</a>
-                    <a class="dropItemSpacer">  </a>
-                </div>
-                <div class="container space-between">
-                    <a data-slot="Head">Head</a>
-                    <a href="#" rel="item=51310"></a>
-                    <a data-instance="Naxx">Naxx</a>
-                    <a data-raidsize="10">10 Person</a>
-                    <a data-diff="Hardmode/HC">Hardmode H/C</a>
-                    <a class="dropItemSpacer">  </a>
-                </div>
-            </div>
-        </div>
-        <div class="dropdown" data-class="warrior" data-spec="arms">
-            <div class="dropitem">
-                <div class="container space-between">
-                    <a data-slot="Head">Neck</a>
-                    <a href="#" rel="item=51310"></a>
-                    <a data-instance="Naxx">Naxx</a>
-                    <a data-raidsize="10">10 Person</a>
-                    <a data-diff="Hardmode/HC">Hardmode H/C</a>
-                    <button class="dropbtn" onclick="myFunction(event, 2222)"> < </button>
-                </div>
-            </div>
-            <div id="myDropdown2222" class="dropdown-content ">
-                <div class="container space-between">
-                    <a data-slot="Head">Neck</a>
-                    <a href="#" rel="item=51310"></a>
-                    <a data-instance="Naxx">Naxx</a>
-                    <a data-raidsize="10">10 Person</a>
-                    <a data-diff="Hardmode/HC">Hardmode H/C</a>
-                    <a class="dropItemSpacer">  </a>
-                </div>
-                <div class="container space-between">
-                    <a data-slot="Head">Neck</a>
-                    <a href="#" rel="item=51310"></a>
-                    <a data-instance="Naxx">Naxx</a>
-                    <a data-raidsize="10">10 Person</a>
-                    <a data-diff="Hardmode/HC">Hardmode H/C</a>
-                    <a class="dropItemSpacer">  </a>
-                </div>
-                <div class="container space-between">
-                    <a data-slot="Head">Neck</a>
-                    <a href="#" rel="item=51310"></a>
-                    <a data-instance="Naxx">Naxx</a>
-                    <a data-raidsize="10">10 Person</a>
-                    <a data-diff="Hardmode/HC">Hardmode H/C</a>
-                    <a class="dropItemSpacer">  </a>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 
 <script type="text/javascript" src="https://wotlk.evowow.com/static/widgets/power.js"></script>
