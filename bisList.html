@@ -5,6 +5,7 @@
 <body>
     <div class="container panelSpacing" style="justify-content:space-evenly">
         <div onclick="myFunction2(event, 3)" style="cursor:pointer" class=" selecterDropDown">
+            <label>Class </label>
             <div class="dropdown">
                 <div class="dropitem filterDropDown">
                     <div class="container space-between">
@@ -28,18 +29,21 @@
             </div>
         </div>
 
-        <div id="specList" style="cursor:pointer" onclick="myFunction2(event, 4)" class="dropdown filterDropDown">
-            <div class="dropitem filterDropDown">
-                <div class="container space-between">
-                    <a id="specSelectTitle" data-class="dk">Blood</a>
+        <div>
+            <label>Spec</label>
+            <div id="specList" style="cursor:pointer" onclick="myFunction2(event, 4)" class="dropdown filterDropDown">
+                <div class="dropitem filterDropDown">
+                    <div class="container space-between">
+                        <a id="specSelectTitle" data-class="dk">Blood</a>
+                    </div>
                 </div>
-            </div>
-            <div id="myDropdown4" style="position:absolute" class="dropdown-content ">
-                <div class="itemSelectBtn">
-                    <a data-class="dk">Frost</a>
-                </div>
-                <div class="itemSelectBtn">
-                    <a data-class="dk">Unholoy</a>
+                <div id="myDropdown4" style="position:absolute" class="dropdown-content ">
+                    <div class="itemSelectBtn">
+                        <a data-class="dk">Frost</a>
+                    </div>
+                    <div class="itemSelectBtn">
+                        <a data-class="dk">Unholoy</a>
+                    </div>
                 </div>
             </div>
         </div>
