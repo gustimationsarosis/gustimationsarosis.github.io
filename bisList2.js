@@ -1,5 +1,6 @@
 //item selector
 var model = classTypes.dk.blood;
+var initClass = "dk";
 var naxFilter;
 
 function myFunction(event, num) {
@@ -21,7 +22,6 @@ function filterValues() {
     naxFilter = document.getElementById('NaxxFilter').value;
 }
 
-buildItemTable();
 
 function selectNewClass(event) {
 
@@ -187,3 +187,7 @@ function createItem(itemListContainer, item, key, i) {
     }
 
 }
+
+//On page load
+setSpecDropDown(initClass);
+buildItemTable();
