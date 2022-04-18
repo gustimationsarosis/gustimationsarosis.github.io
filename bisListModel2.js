@@ -1,6 +1,8 @@
 var classTypes = {
     dk: {
+        icon: "",
         Blood: {
+            image: "",
             Head: [
                 [40565, "Nax", 10, null, null],
                 [39625, "Nax", 25, null, null],
