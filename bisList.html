@@ -1,108 +1,128 @@
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
     <meta charset="utf-8" />
     <title>WotLK Raid Comp Selector Tool</title>
 </head>
-<body>
-    <div class="container panelSpacing" style="justify-content:space-evenly">
-        <div onclick="myFunction2(event, 3)" style="cursor:pointer" class=" selecterDropDown">
-            <label>Class </label>
-            <div class="dropdown">
-                <div class="dropitem filterDropDown">
-                    <div class="container space-between">
-                        <a id="playerSelectTitle">Death Knight</a>
-                    </div>
-                </div>
-                <div id="myDropdown3" style="position:absolute" class="dropdown-content ">
-                    <div onclick="selectNewClass(this)" data-spec="arcane" data-class="mage" class="itemSelectBtn">
-                        <a>Mage</a>
-                    </div>
-                    <div class="itemSelectBtn">
-                        <a onclick="selectNewClass(this)" data-spec="blood" data-class="dk">Death Knight</a>
-                    </div>
-                    <div class="itemSelectBtn">
-                        <a data-class="mage">Mage</a>
-                    </div>
-                    <div class="itemSelectBtn">
-                        <a data-class="hunter">Preist</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div>
-            <label>Spec</label>
-            <div id="specList" style="cursor:pointer" onclick="myFunction2(event, 4)" class="dropdown filterDropDown">
-                <div class="dropitem filterDropDown">
-                    <div class="container space-between">
-                        <a id="specSelectTitle" data-class="dk">Blood</a>
-                    </div>
-                </div>
-                <div id="myDropdown4" style="position:absolute" class="dropdown-content ">
-                    <div class="itemSelectBtn">
-                        <a data-class="dk">Frost</a>
-                    </div>
-                    <div class="itemSelectBtn">
-                        <a data-class="dk">Unholoy</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container panelSpacing ">
-        <div class="row">
+<body style="background-color: #1d1f29; color:white; text-align:center">
+    <h1>Ultimate BIS List Tool</h1>
+    <div style="background-color: #2b2d36;
+                padding:30px;
+                margin-left:50px;
+                margin-right:50px;
+                border-radius:10px">
+        <div class="container panelSpacing" style="justify-content: center;">
             <label class="sliderLayout">
                 Naxx 10
+                <label class="switch">
+                    <input onclick="setFilters(this)" id="NaxxFilter" type="checkbox" value="true" checked>
+                    <span class="slider round"></span>
+                </label>
             </label>
 
-            <label class="switch">
-                <input onclick="setFilters(this)" id="NaxxFilter" type="checkbox" value="true" checked>
-                <span class="slider round"></span>
+            <label class="sliderLayout">
+                Naxx 25
+                <label class="switch">
+                    <input onclick="setFilters(this)" id="" type="checkbox" value="true" checked>
+                    <span class="slider round"></span>
+                </label>
+            </label>
+            <label class="sliderLayout">
+                Uldar 10
+                <label class="switch">
+                    <input onclick="setFilters(this)" id="" type="checkbox" value="false">
+                    <span class="slider round"></span>
+                </label>
+            </label>
+            <label class="sliderLayout">
+                Uldar 25
+                <label class="switch">
+                    <input onclick="setFilters(this)" id="" type="checkbox" value="false">
+                    <span class="slider round"></span>
+                </label>
+            </label>
+            <label class="sliderLayout">
+                ToC 10
+                <label class="switch">
+                    <input onclick="setFilters(this)" id="" type="checkbox" value="false">
+                    <span class="slider round"></span>
+                </label>
+            </label>
+            <label class="sliderLayout">
+                ToC 25
+                <label class="switch">
+                    <input onclick="setFilters(this)" id="" type="checkbox" value="false">
+                    <span class="slider round"></span>
+                </label>
             </label>
         </div>
 
-        <label class="sliderLayout">
-            Naxx 25
-            <label class="switch">
-                <input onclick="setFilters(this)" id="" type="checkbox" value="true" checked>
-                <span class="slider round"></span>
-            </label>
-        </label>
-        <label class="sliderLayout">
-            Uldar 10
-            <label class="switch">
-                <input onclick="setFilters(this)" id="" type="checkbox" value="false">
-                <span class="slider round"></span>
-            </label>
-        </label>
-        <label class="sliderLayout">
-            Uldar 25
-            <label class="switch">
-                <input onclick="setFilters(this)" id="" type="checkbox" value="false">
-                <span class="slider round"></span>
-            </label>
-        </label>
-        <label class="sliderLayout">
-            ToC 10
-            <label class="switch">
-                <input onclick="setFilters(this)" id="" type="checkbox" value="false">
-                <span class="slider round"></span>
-            </label>
-        </label>
-        <label class="sliderLayout">
-            ToC 25
-            <label class="switch">
-                <input onclick="setFilters(this)" id="" type="checkbox" value="false">
-                <span class="slider round"></span>
-            </label>
-        </label>
+        <div class="container panelSpacing" style="justify-content:space-evenly">
+            <div onclick="myFunction2(event, 3)" style="cursor:pointer; z-index:1" class=" selecterDropDown">
+                <div style="display:grid; text-align:left; margin-bottom:10px">
+                    Class
+                </div>
+
+                <div class="dropdown">
+                    <div class="dropitem filterDropDown">
+                        <div class="container space-between">
+                            <a id="playerSelectTitle">Death Knight</a>
+                        </div>
+                    </div>
+                    <div id="myDropdown3" style="position:absolute" class="dropdown-content ">
+                        <div onclick="selectNewClass(this)" data-spec="arcane" data-class="mage" class="itemSelectBtn">
+                            <a>Mage</a>
+                        </div>
+                        <div class="itemSelectBtn">
+                            <a onclick="selectNewClass(this)" data-spec="Blood" data-class="dk">Death Knight</a>
+                        </div>
+                        <div class="itemSelectBtn">
+                            <a data-class="mage">Mage</a>
+                        </div>
+                        <div class="itemSelectBtn">
+                            <a data-class="hunter">Preist</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="sliderLayout" style="z-index: 1; display: grid; text-align: left">
+                <div style="margin-bottom:10px">
+                    Spec
+                </div>
+                <div id="specList" style="cursor:pointer" onclick="myFunction2(event, 4)" class="dropdown filterDropDown">
+                    <div class="dropitem filterDropDown">
+                        <div class="container space-between">
+                            <a id="specSelectTitle" data-class="dk">Blood</a>
+                        </div>
+                    </div>
+                    <div id="myDropdown4" style="position:absolute" class="dropdown-content ">
+                        <div class="itemSelectBtn">
+                            <a data-class="dk">Frost</a>
+                        </div>
+                        <div class="itemSelectBtn">
+                            <a data-class="dk">Unholoy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dropContainer panelSpacing" id="itemTable">
+        </div>
     </div>
 
-    <div class="dropContainer panelSpacing" id="itemTable">
-
-    </div>
 
 </body>
+
+<style>
+    body {
+        font-family: sans-serif;
+    }
+</style>
 
 <script type="text/javascript" src="https://wotlk.evowow.com/static/widgets/power.js"></script>
 <script>var aowow_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": true }</script>

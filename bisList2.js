@@ -1,15 +1,21 @@
 //item selector
-var model = classTypes.dk.blood;
+var model = classTypes.dk.Blood;
 var initClass = "dk";
 var naxFilter;
 
+var icon = document.createElement('span');
+icon.classList.add('material-icons-outlined');
 function myFunction(event, num) {
     var dropDown = document.getElementById("myDropdown" + num).classList.toggle("show");
-    if (dropDown)
-        event.target.innerHTML = " V ";
-    else
-        event.target.innerHTML = " < ";
+    if (dropDown) {
+        event.target.removeAttribute("class");
+        event.target.classList.add('dropbtn', 'fa-solid', 'fa-chevron-down');
 
+    }
+    else {
+        event.target.removeAttribute("class");
+        event.target.classList.add('dropbtn', 'fa-solid', 'fa-chevron-left');
+    }
     console.log(event.target.innerHTML);
 }
 
@@ -176,9 +182,8 @@ function createItem(itemListContainer, item, key, i) {
     itemListContainer.appendChild(aitem);
     if (i == 0) {
         var btn = document.createElement('button');
-        btn.classList.add('dropbtn');
+        btn.classList.add('dropbtn', 'fa-solid', 'fa-chevron-left');
         btn.setAttribute('onclick', 'myFunction(event,"' + key + '")');
-        btn.innerHTML = "<";
         itemListContainer.appendChild(btn);
     } else {
         var aitem = document.createElement('a');
