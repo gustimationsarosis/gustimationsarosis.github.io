@@ -1,7 +1,7 @@
 //item selector
 var model = classTypes.dk.Blood;
 var initClass = "dk";
-var naxFilter;
+var naxFilter, uldaerFiler, tocFilter, filter10, filter25;
 
 var icon = document.createElement('span');
 icon.classList.add('material-icons-outlined');
@@ -25,7 +25,10 @@ function myFunction2(event, num) {
 }
 
 function filterValues() {
-    naxFilter = document.getElementById('NaxxFilter').value;
+    naxFilter = document.getElementById('naxFilter').value;
+    filter10 = document.getElementById('filter10').value;
+    filter25 = document.getElementById('filter25').value;
+
 }
 
 
@@ -39,7 +42,7 @@ function selectNewClass(event) {
 
     classSpec = classSpec[classSpecData];
     model = classSpec;
-    buildItemTable();
+    buildItemTable(true);
     setSpecDropDown(classNameData);
 }
 
@@ -54,7 +57,7 @@ function selectNewspec(event) {
     var classSpec = classTypes[classNameData];
     classSpec = classSpec[classSpecData];
     model = classSpec;
-    buildItemTable();
+    buildItemTable(true);
 }
 
 function setSpecDropDown(classNameData) {
@@ -70,11 +73,11 @@ function setSpecDropDown(classNameData) {
     itemContainer.classList.add('container', 'space-between');
     var a = itemContainer.appendChild(document.createElement('a'));
     a.setAttribute('data-class', Object.keys(classType)[i]);
-    a.innerHTML = Object.keys(classType)[0];
+    a.innerHTML = Object.keys(classType)[1];
     a.id = "specSelectTitle";
 
-    for (var i = 0; i < index; i++) {
-        if (i == 0) {
+    for (var i = 1; i < index; i++) {
+        if (i == 1) {
             itemDearder = specList.appendChild(document.createElement('div'));
             itemDearder.classList.add('dropdown-content');
             itemDearder.id = "myDropdown4";
@@ -100,10 +103,10 @@ function setFilters(event) {
     else
         event.value = true;
     filterValues();
-    buildItemTable();
+    buildItemTable(true);
 }
 
-function buildItemTable() {
+function buildItemTable(rebuild) {
 
     var table = document.getElementById('itemTable');
     table.innerHTML = "";
@@ -111,16 +114,18 @@ function buildItemTable() {
 
     var itemContainerI = 0;
     for (var key in model) {
+        if (key == "image")
+            continue;
         var dropDown = document.createElement('div');
         dropDown.classList.add('dropdown');
         var items = model[key];
         var dropItem;
         var itemContainerI = 0;
         var itemCounter = 0;
-        for (var i = 0; i < items.length; i++) {
-            if (items[i][1] == "Nax" && naxFilter == "false") {
-                continue;
-            }
+        var filteredList = filter(items);
+
+        for (var i = 0; i < filteredList.length; i++) {
+
             if (itemContainerI == 0) { //first item
                 dropItem = document.createElement('div');
                 dropItem.classList.add('dropitem');
@@ -141,7 +146,7 @@ function buildItemTable() {
             var itemListContainer = document.createElement('div');
 
             itemListContainer.classList.add('container', 'space-between');
-            createItem(itemListContainer, items[i], key, itemCounter);
+            createItem(itemListContainer, filteredList[i], key, itemCounter);
             dropItem.appendChild(itemListContainer);
             dropDown.appendChild(dropItem)
             table.appendChild(dropDown);
@@ -150,7 +155,31 @@ function buildItemTable() {
         }
         strippedCounter++
     }
-    $WowheadPower.refreshLinks();
+    if (rebuild) {
+        $WowheadPower.init();
+        $WowheadPower.refreshLinks();
+    }
+
+}
+
+function filter(itemList) {
+    var filteredList = [];
+
+    for (var i = 0; i < itemList.length; i++) {
+
+        if (itemList[i][1] == "Nax" && naxFilter == "false") {
+            continue;
+        }
+        else if ((itemList[i][2] == 10 && filter10 == "false") ||
+            (itemList[i][2] == 25 && filter25 == "false")) {
+            continue;
+        }
+        else {
+            filteredList.push(itemList[i]);
+        }
+    }
+
+    return filteredList;
 }
 
 function createItem(itemListContainer, item, key, i) {
@@ -195,4 +224,5 @@ function createItem(itemListContainer, item, key, i) {
 
 //On page load
 setSpecDropDown(initClass);
-buildItemTable();
+buildItemTable(false);
+filterValues();
