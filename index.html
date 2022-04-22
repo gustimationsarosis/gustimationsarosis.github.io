@@ -3,13 +3,14 @@
 <head>
 
     <style>
-        .dropContainer{
-            display:grid;
+        .dropContainer {
+            display: grid;
         }
 
         .container {
             display: flex;
         }
+
             .container.space-between {
                 justify-content: space-between;
             }
@@ -19,22 +20,21 @@
             border-bottom-width: 1px;
             border-bottom-color: black;
         }
-
     </style>
     <meta charset="utf-8" />
     <title>WotLK Raid Comp Selector Tool</title>
 </head>
 <body>
 
-    <a href="bisList.html"> BIS List Version 2</a>
-    <table id="bisListTable">
-    </table>
+    <a href="bisList.html"> BIS List</a>
+    <!--<table id="bisListTable">
+    </table>-->
 
 
     <h1>
         WotLK Raid Comp Selector Tool
     </h1>
-    <row style="display:inline-flex; flex-direction:column">
+    <div style="display:inline-flex; flex-direction:column">
         <div>
             <table id="playerGrid">
                 <caption>Player selector</caption>
@@ -54,8 +54,8 @@
             </ul>
             <input type="hidden" id="totalRaidComp" />
         </div>
-    </row>
-    <row style="display:inline-flex">
+    </div>
+    <div style="display:inline-flex">
         <div style="margin-left: 15px">
             <label>
                 Buff tracker
@@ -70,7 +70,7 @@
             <ul id="raidDeBuffs">
             </ul>
         </div>
-    </row>
+    </div>
 
     <footer>
         <p class="copyright">
@@ -84,6 +84,7 @@
 <script type="text/javascript" src="https://wotlk.evowow.com/static/widgets/power.js"></script>
 <script>var aowow_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": true }</script>
 <link rel="stylesheet" href="main.css" />
+<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
 
 
 
@@ -104,29 +105,29 @@
 
 
 
-<script id="defaultId">
+<script>
     var totalRaidComp;
     buildRaidTable();
     buildRaidSlecTable();
     buildRaidStructure();
     getUrlParameters();
 
-    function myFunction(num) {
-        document.getElementById("myDropdown"+num).classList.toggle("show");
-    }
+    //function myFunction(num) {
+    //    document.getElementById("myDropdown"+num).classList.toggle("show");
+    //}
 
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function (event) {
-        if (!event.target.matches('.clickME')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
+    //// Close the dropdown if the user clicks outside of it
+    //window.onclick = function (event) {
+    //    if (!event.target.matches('.clickME')) {
+    //        var dropdowns = document.getElementsByClassName("dropdown-content");
+    //        var i;
+    //        for (i = 0; i < dropdowns.length; i++) {
+    //            var openDropdown = dropdowns[i];
+    //            if (openDropdown.classList.contains('show')) {
+    //                openDropdown.classList.remove('show');
+    //            }
+    //        }
+    //    }
+    //}
 
 </script>

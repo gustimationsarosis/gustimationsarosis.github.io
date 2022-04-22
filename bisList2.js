@@ -185,7 +185,7 @@ function filter(itemList) {
 function createItem(itemListContainer, item, key, i) {
     var aitem = document.createElement('a');
     aitem.innerHTML = key;
-    aitem.style.width = "20px";
+    aitem.style.minWidth = "60px";
     itemListContainer.appendChild(aitem);
     var aitem = document.createElement('a');
     aitem.href = "#";

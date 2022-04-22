@@ -42,14 +42,14 @@ function buildRaidSlecTable() {
             row.setAttribute('data-rid', playerType.id);
 
             row.classList.add('playergrid');
-            row.classList.add('tooltip');
+            row.classList.add('tooltipCustom');
             row.classList.add('button-1');
             // to track dragging not on raid selector
             row.setAttribute('ondragend', 'dragEnd(event)');
 
             var tooltipSpan = row.appendChild(document.createElement('span'));
-            tooltipSpan.classList.add('tooltiptext');
-            tooltipSpan.id = "" + playerType.id + "tooltip";
+            tooltipSpan.classList.add('tooltipCustomtext');
+            tooltipSpan.id = "" + playerType.id + "tooltipCustom";
 
             //Buff tips
             var toolTipHeader = tooltipSpan.appendChild(document.createElement('h3'));

@@ -2,12 +2,15 @@
     width: 140px;
     height: 40px;
 }
+ul{
+    list-style-type: none;
+}
 
-.tooltip {
+.tooltipCustom {
     position: relative;
 }
 
-    .tooltip .tooltiptext {
+    .tooltipCustom .tooltipCustomtext {
         border: 1px solid black;
         visibility: hidden;
         width: 200px;
@@ -25,7 +28,7 @@
         transition: opacity 0.3s;
     }
 
-        .tooltip .tooltiptext::after {
+        .tooltipCustom .tooltipCustomtext::after {
             content: "";
             position: absolute;
             top: 100%;
@@ -36,7 +39,7 @@
             border-color: #555 transparent transparent transparent;
         }
 
-    .tooltip:hover .tooltiptext {
+    .tooltipCustom:hover .tooltipCustomtext {
         visibility: visible;
         opacity: 0.9;
     }
