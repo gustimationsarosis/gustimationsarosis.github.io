@@ -167,11 +167,11 @@ function filter(itemList) {
 
     for (var i = 0; i < itemList.length; i++) {
 
-        if (itemList[i][1] == "Nax" && naxFilter == "false") {
+        if (naxFilter != null && itemList[i][1] == "Nax" && naxFilter == "false") {
             continue;
         }
-        else if ((itemList[i][2] == 10 && filter10 == "false") ||
-            (itemList[i][2] == 25 && filter25 == "false")) {
+        else if ((filter10 && itemList[i][2] == 10 && filter10 == "false") ||
+            (filter25 && itemList[i][2] == 25 && filter25 == "false")) {
             continue;
         }
         else {
@@ -194,19 +194,19 @@ function createItem(itemListContainer, item, key, i) {
     aitem.style.width = "250px";
     itemListContainer.appendChild(aitem);
     var aitem = document.createElement('a');
-    aitem.innerHTML = item[1];
+    aitem.innerHTML = item[1] ?? "";
     aitem.style.width = "20px";
     itemListContainer.appendChild(aitem);
     var aitem = document.createElement('a');
-    aitem.innerHTML = item[2];
+    aitem.innerHTML = item[2] ?? "";
     aitem.style.width = "20px";
     itemListContainer.appendChild(aitem);
     var aitem = document.createElement('a');
-    aitem.innerHTML = item[3];
+    aitem.innerHTML = item[3] ?? "";
     aitem.style.width = "20px";
     itemListContainer.appendChild(aitem);
     var aitem = document.createElement('a');
-    aitem.innerHTML = item[4];
+    aitem.innerHTML = item[4] ?? "";
     aitem.style.width = "20px";
     itemListContainer.appendChild(aitem);
     if (i == 0) {
@@ -221,8 +221,3 @@ function createItem(itemListContainer, item, key, i) {
     }
 
 }
-
-//On page load
-setSpecDropDown(initClass);
-buildItemTable(false);
-filterValues();

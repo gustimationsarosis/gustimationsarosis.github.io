@@ -7,7 +7,7 @@
     <title>WotLK Raid Comp Selector Tool</title>
 </head>
 <body style="background-color: #1d1f29; color:white; text-align:center">
-    <h1>Ultimate BIS List Tool</h1>
+    <h1>Ultimate BIS List Rep Tool</h1>
     <div style="background-color: #2b2d36;
                 padding:30px;
                 margin-left:50px;
@@ -91,42 +91,42 @@
         <div style="margin-bottom:60px; margin-top:30px; font-size:13px">
             <div class="container panelSpacing" style="justify-content: center;">
                 <label class="sliderLayout">
-                    Naxx
+                    ArgentCrusade
                     <label class="switch">
                         <input onclick="setFilters(this)" id="naxFilter" type="checkbox" value="true" checked>
                         <span class="slider round"></span>
                     </label>
                 </label>
                 <label class="sliderLayout">
-                    VoA
+                    KirinTor
                     <label class="switch">
                         <input onclick="setFilters(this)" id="" type="checkbox" value="false">
                         <span class="slider round"></span>
                     </label>
                 </label>
                 <label class="sliderLayout">
-                    <label>Onyxia</label>
+                    <label>KnightsoftheEbonBlade</label>
                     <label class="switch">
                         <input onclick="setFilters(this)" id="" type="checkbox" value="false">
                         <span class="slider round"></span>
                     </label>
                 </label>
                 <label class="sliderLayout">
-                    <label>Obsidian</label>
+                    <label>WyrmrestAccord</label>
                     <label class="switch">
                         <input onclick="setFilters(this)" id="" type="checkbox" value="false">
                         <span class="slider round"></span>
                     </label>
                 </label>
                 <label class="sliderLayout">
-                    <label>EoE</label>
+                    <label>Kaluak</label>
                     <label class="switch">
                         <input onclick="setFilters(this)" id="" type="checkbox" value="false">
                         <span class="slider round"></span>
                     </label>
                 </label>
                 <label class="sliderLayout">
-                    Uldar
+                    SonsofHodir
                     <label class="switch">
                         <input onclick="setFilters(this)" id="" type="checkbox" value="false">
                         <span class="slider round"></span>
@@ -134,54 +134,9 @@
                 </label>
 
                 <label class="sliderLayout">
-                    ToC
+                    FrenzyheartTribe
                     <label class="switch">
                         <input onclick="setFilters(this)" id="" type="checkbox" value="false">
-                        <span class="slider round"></span>
-                    </label>
-                </label>
-                <label class="sliderLayout">
-                    ICC
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="" type="checkbox" value="false">
-                        <span class="slider round"></span>
-                    </label>
-                </label>
-                <label class="sliderLayout">
-                    Ruby Sanctum
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="" type="checkbox" value="false">
-                        <span class="slider round"></span>
-                    </label>
-                </label>
-            </div>
-            <div class="container panelSpacing" style="justify-content: center;">
-                <label class="sliderLayout">
-                    10
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="filter10" type="checkbox" value="true" checked>
-                        <span class="slider round"></span>
-                    </label>
-                </label>
-
-                <label class="sliderLayout">
-                    25
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="filter25" type="checkbox" value="true" checked>
-                        <span class="slider round"></span>
-                    </label>
-                </label>
-                <label class="sliderLayout">
-                    Heroic
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="heroicFilter" type="checkbox" value="false">
-                        <span class="slider round"></span>
-                    </label>
-                </label>
-                <label class="sliderLayout">
-                    Hard Mode
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="hardmodeFilter" type="checkbox" value="false">
                         <span class="slider round"></span>
                     </label>
                 </label>
@@ -207,9 +162,11 @@
 <script>var aowow_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": true }</script>
 
 <link rel="stylesheet" href="bisList2.css" />
-<script src="bisListModel2.js"></script>
+<script src="bisListRepModel.js"></script>
 <script src="bisList2.js"></script>
+
 <script>
+
     //On page load
     setSpecDropDown(initClass);
     buildItemTable(false);
