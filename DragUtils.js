@@ -140,7 +140,7 @@ function allowDrop(ev) {
 
 //Show hides tooltip when dragging player select
 function showHideToolTip(show, toolTip) {
-    var tip = document.getElementById("" + toolTip + 'tooltip');
+    var tip = document.getElementById("" + toolTip + 'tooltipCustom');
     if (toolTip == "")
         return;
 
