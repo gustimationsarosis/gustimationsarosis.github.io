@@ -183,28 +183,52 @@ function filter(itemList) {
 }
 
 function createItem(itemListContainer, item, key, i) {
+
+    /*Slot*/
     var aitem = document.createElement('a');
     aitem.innerHTML = key;
     aitem.style.minWidth = "60px";
     itemListContainer.appendChild(aitem);
+
+    /*Item icon*/
+    var aitem = document.createElement('div');
+    var iconPath = "url('Images//Icons//" + searchCache(item[0]) + ".jpg')";
+    //aitem.innerHTML = searchCache(item[0]);
+    aitem.style.backgroundImage = iconPath;
+    aitem.style.width = "64px";
+    aitem.style.height = "64px";
+    itemListContainer.appendChild(aitem);
+
+    /*ToolTip*/
     var aitem = document.createElement('a');
     aitem.href = "#";
     aitem.rel = "item=" + item[0];
     aitem.innerHTML = "";
     aitem.style.width = "250px";
+    aitem.classList.add("anon");
+    var aitemDiv = aitem.appendChild(document.createElement('div'));
+
+    aitemDiv.style.backgroundImage = iconPath;
+    aitemDiv.style.width = "64px";
+    aitemDiv.style.height = "64px";
     itemListContainer.appendChild(aitem);
+
+    /*Raid*/
     var aitem = document.createElement('a');
     aitem.innerHTML = item[1] ?? "";
     aitem.style.width = "20px";
     itemListContainer.appendChild(aitem);
+    /*Raid Size*/
     var aitem = document.createElement('a');
     aitem.innerHTML = item[2] ?? "";
     aitem.style.width = "20px";
     itemListContainer.appendChild(aitem);
+    /*Heroic?*/
     var aitem = document.createElement('a');
     aitem.innerHTML = item[3] ?? "";
     aitem.style.width = "20px";
     itemListContainer.appendChild(aitem);
+    /*Boss*/
     var aitem = document.createElement('a');
     aitem.innerHTML = item[4] ?? "";
     aitem.style.width = "20px";
@@ -218,6 +242,16 @@ function createItem(itemListContainer, item, key, i) {
         var aitem = document.createElement('a');
         aitem.style.width = "20px";
         itemListContainer.appendChild(aitem);
+    }
+}
+
+
+function searchCache(id) {
+
+    for (var i = 0; i < itemsCache.ArrayOfItem.Item.length; i++) {
+        if (itemsCache.ArrayOfItem.Item[i].Id == id) {
+            return itemsCache.ArrayOfItem.Item[i].IconPath;
+        }
     }
 
 }

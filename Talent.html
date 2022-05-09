@@ -95,9 +95,9 @@
             ],
 
             background: [
-                ["//deathknight//Blood//background.jpg"],
-                ["//deathknight//Frost//background.jpg"],
-                ["//deathknight//Unholy//background.jpg"]
+                ["//TalentImages//BloodBackground.jpg"],
+                ["//TalentImages//FrostBackground.jpg"],
+                ["//TalentImages//UnholoyBackground.jpg"]
             ]
         }
     };
@@ -110,7 +110,7 @@
     function build(no, data, background) {
         var playerGrid = document.getElementById("talentTable" + no);
 
-        playerGrid.style.backgroundImage = "url('TalentImages" + background + "')";
+        playerGrid.style.backgroundImage = "url('Images" + background + "')";
         playerGrid.classList.add("talentTable");
 
         for (var i = 0; i < 11; i++) {
