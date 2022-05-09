@@ -307,77 +307,81 @@ var classTypes = {
         },
         Feral: {
             Head: [
-                [40565, "Nax", 10, null, null],
-                [39625, "Nax", 25, null, null],
-                [45336, "Uldar", 25, "HC", "HM"],
-                [51310, "ToC", 25, "HC", "HM"],
-                [51310, "ICC", 25, "HC", "HM"]
+                [40473, "Nax", 25, null, "Kel'Thuad"],
+                [40329, "Nax", 10, null, "Kel'Thuzad"],
+                [42550, "Nax", 25, null, "Gothik"],
 
             ],
             Neck: [
-                [51310, "Nax", 10, null, null],
-                [51310, "Nax", 25, null, null],
-                [51310, "Uldar", 25, "HC", "HM"]
+                [44664, "Nax", 10, null, null],
+                [44659, "Nax", 10, null, null],
+                [39421, "Nax", 25, null, null]
             ],
             Sholder: [
-                [51310, "Nax", 10, null, null],
-                [51310, "Nax", 25, null, null],
-                [51310, "Uldar", 25, "HC", "HM"]
+                [40494, "Nax", 10, null, null],
+                [39556, "Nax", 25, null, null],
+                [40305, "Nax", 25, null, null]
             ],
             cape: [
-                [51310, "Nax", 10, null, null],
-                [51310, "Nax", 25, null, null],
-                [51310, "Uldar", 25, "HC", "HM"]
+                [40403, "Nax", 10, null, null],
+                [40250, "Nax", 25, null, null],
+                [40721, "Nax", 25, null, null]
             ],
             wrist: [
-                [51310, "Nax", 10, null, null],
-                [51310, "Nax", 25, null, null],
-                [51310, "Uldar", 25, "HC", "HM"]
+                [39765, "Nax", 10, null, null],
+                [40738, "Nax", 25, null, null],
+                [39247, "Nax", 25, null, null]
             ],
             hands: [
-                [51310, "Nax", 10, null, null],
-                [51310, "Nax", 25, null, null],
-                [51310, "Uldar", 25, "HC", "HM"]
+                [40541, "Nax", 10, null, null],
+                [40472, "Nax", 25, null, null],
+                [40362, "Nax", 25, null, null]
             ],
             belt: [
-                [51310, "Nax", 10, null, null],
-                [51310, "Nax", 25, null, null],
-                [51310, "Uldar", 25, "HC", "HM"]
+                [40205, "Nax", 10, null, null],
+                [40260, "Nax", 25, null, null],
+                [40694, "Nax", 25, null, null]
             ],
             legs: [
-                [51310, "Nax", 10, null, null],
-                [51310, "Nax", 25, null, null],
-                [51310, "Uldar", 25, "HC", "HM"]
+                [44011, "Nax", 10, null, null],
+                [40333, "Nax", 25, null, null],
+                [40493, "Nax", 25, null, null]
             ],
             boots: [
-                [51310, "Nax", 10, null, null],
-                [51310, "Nax", 25, null, null],
-                [51310, "Uldar", 25, "HC", "HM"]
+                [40243, "Nax", 10, null, null],
+                [39701, "Nax", 25, null, null],
+                [39196, "Nax", 25, null, null]
             ],
             ring1: [
-                [51310, "Nax", 10, null, null],
-                [51310, "Nax", 25, null, null],
-                [51310, "Uldar", 25, "HC", "HM"]
+                [40474, "Nax", 10, null, null],
+                [40717, "Nax", 25, null, null],
+                [42642, "Nax", 25, null, null],
+                [39277, "Nax", 25, null, null]
             ],
             ring2: [
-                [51310, "Nax", 10, null, null],
-                [51310, "Nax", 25, null, null],
-                [51310, "Uldar", 25, "HC", "HM"]
+                [43993, "Nax", 10, null, null],
+                [40717, "Nax", 25, null, null],
+                [42642, "Nax", 25, null, null],
+                [39277, "Nax", 25, null, null]
             ],
             Trinket: [
-                [51310, "Nax", 10, null, null],
-                [51310, "Nax", 25, null, null],
-                [51310, "Uldar", 25, "HC", "HM"]
+                [40256, "Nax", 10, null, null],
+                [40684, "Nax", 25, null, null],
+                [40371, "Nax", 25, null, null],
+                [40431, "Nax", 25, null, null]
             ],
             Trinket2: [
-                [45340, "Nax", 10, null, null],
-                [45340, "Nax", 25, null, null],
-                [45340, "Uldar", 25, "HC", "HM"]
+                [44253, "Nax", 10, null, null],
+                [40684, "Nax", 25, null, null],
+                [40371, "Nax", 25, null, null],
+                [40431, "Nax", 25, null, null]
+            ],
+            Weapon: [
+                [40388, "Nax", 25, null, "Kel'Thuzad"]
             ],
             Alt: [
-                [51310, "Nax", 10, null, null],
-                [51310, "Nax", 25, null, null],
-                [51310, "Uldar", 25, "HC", "HM"]
+                [39757, "Nax", 10, null, null],
+                [40713, "Nax", 25, null, null]
             ]
         },
         Bear: {
@@ -1450,7 +1454,7 @@ var classTypes = {
     },
     rogue: {
         icon: "",
-        Assassination : {
+        Assassination: {
             image: "",
             Head: [
                 [40565, "Nax", 10, null, null],
