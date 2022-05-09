@@ -192,7 +192,7 @@ function createItem(itemListContainer, item, key, i) {
 
     /*Item icon*/
     var aitem = document.createElement('div');
-    var iconPath = "url('Images/Icons/" + searchCache(item[0]) + ".jpg')";
+    var iconPath = "url('../Images/Icons/" + searchCache(item[0]) + ".jpg')";
     //aitem.innerHTML = searchCache(item[0]);
     aitem.style.backgroundImage = iconPath;
     aitem.style.width = "64px";
@@ -208,7 +208,6 @@ function createItem(itemListContainer, item, key, i) {
     aitem.classList.add("anon");
     var aitemDiv = aitem.appendChild(document.createElement('div'));
 
-    aitemDiv.style.backgroundImage = iconPath;
     aitemDiv.style.width = "64px";
     aitemDiv.style.height = "64px";
     itemListContainer.appendChild(aitem);
