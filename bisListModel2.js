@@ -308,8 +308,8 @@ var classTypes = {
         Feral: {
             Head: [
                 [40473, "Nax", 25, null, "Kel'Thuad"],
-                [40329, "Nax", 10, null, "Kel'Thuzad"],
-                [42550, "Nax", 25, null, "Gothik"],
+                [40329, "Nax", 10, null, null],
+                [42550, "Nax", 25, null, null],
 
             ],
             Neck: [
@@ -318,7 +318,7 @@ var classTypes = {
                 [39421, "Nax", 25, null, null]
             ],
             Sholder: [
-                [40494, "Nax", 10, null, null],
+                [40494, "Nax", 10, null , null],
                 [39556, "Nax", 25, null, null],
                 [40305, "Nax", 25, null, null]
             ],

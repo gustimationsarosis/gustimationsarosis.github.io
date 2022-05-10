@@ -6,7 +6,12 @@ var naxFilter, uldaerFiler, tocFilter, filter10, filter25;
 var icon = document.createElement('span');
 icon.classList.add('material-icons-outlined');
 function myFunction(event, num) {
-    var dropDown = document.getElementById("myDropdown" + num).classList.toggle("show");
+    var dropDown = document.getElementById("myDropdown" + num);
+
+    if (dropDown == null)
+        return
+
+    dropDown.classList.toggle("show");
     if (dropDown) {
         event.target.removeAttribute("class");
         event.target.classList.add('dropbtn', 'fa-solid', 'fa-chevron-down');
@@ -197,6 +202,8 @@ function createItem(itemListContainer, item, key, i) {
     aitem.style.backgroundImage = iconPath;
     aitem.style.width = "64px";
     aitem.style.height = "64px";
+    aitem.style.backgroundSize = "46px";
+    aitem.style.backgroundRepeat = "no-repeat";
     itemListContainer.appendChild(aitem);
 
     /*ToolTip*/
@@ -206,10 +213,7 @@ function createItem(itemListContainer, item, key, i) {
     aitem.innerHTML = "";
     aitem.style.width = "250px";
     aitem.classList.add("anon");
-    var aitemDiv = aitem.appendChild(document.createElement('div'));
 
-    aitemDiv.style.width = "64px";
-    aitemDiv.style.height = "64px";
     itemListContainer.appendChild(aitem);
 
     /*Raid*/
@@ -229,8 +233,9 @@ function createItem(itemListContainer, item, key, i) {
     itemListContainer.appendChild(aitem);
     /*Boss*/
     var aitem = document.createElement('a');
-    aitem.innerHTML = item[4] ?? "";
-    aitem.style.width = "20px";
+    aitem.innerHTML = item[4] ?? searchItemSource(item[0]) ?? "";
+    aitem.style.width = "100px";
+    aitem.style.fontSize = "12px";
     itemListContainer.appendChild(aitem);
     if (i == 0) {
         var btn = document.createElement('button');
@@ -245,6 +250,7 @@ function createItem(itemListContainer, item, key, i) {
 }
 
 
+/*Finds the items icon*/
 function searchCache(id) {
 
     for (var i = 0; i < itemsCache.ArrayOfItem.Item.length; i++) {
@@ -252,5 +258,38 @@ function searchCache(id) {
             return itemsCache.ArrayOfItem.Item[i].IconPath;
         }
     }
+}
 
+/*Finds loot from boss*/
+function searchItemSource(id) {
+
+    for (var i = 0; i < itemSource.dictionary.item.length; i++) {
+
+        // Finds matching item
+        if (itemSource.dictionary.item[i].key.string == id) {
+
+            // Finds boss loot item
+            if (itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].Boss != null)
+                return itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].Boss;
+
+            // 
+            else if (itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].TokenMap != null) {
+                if (itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].TokenMap.item.key != null) {
+                    if (itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[1].Boss != null) {
+                        return itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[1].Boss;
+                    }
+                    return itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].TokenMap.item.key.string;
+                }
+            }
+            else if (itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].Quest != null) {
+                return itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].Quest;
+            }
+            else if (itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].Container != null) {
+                return itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].Container;
+            }
+            else if (itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].Skill != null) {
+                return itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].Skill;
+            }
+        }
+    }
 }
