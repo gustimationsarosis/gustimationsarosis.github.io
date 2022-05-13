@@ -1,7 +1,10 @@
 //item selector
 var model = classTypes.dk.Blood;
 var initClass = "dk";
-var naxFilter, uldaerFiler, tocFilter, filter10, filter25;
+var naxFilter, uldarFilter, tocFilter,
+    voaFilter, onyxiaFilter, obsidianFilter,
+    eoeFilter, iccFilter, rubysanctumFilter
+    filter10, filter25, preRaidFilter;
 
 var icon = document.createElement('span');
 icon.classList.add('material-icons-outlined');
@@ -30,7 +33,17 @@ function myFunction2(event, num) {
 }
 
 function filterValues() {
+    preRaidFilter = document.getElementById('preRaidFilter').value;
     naxFilter = document.getElementById('naxFilter').value;
+    voaFilter = document.getElementById('voaFilter').value;
+    onyxiaFilter = document.getElementById('onyxiaFilter').value;
+    obsidianFilter = document.getElementById('obsidianFilter').value;
+    eoeFilter = document.getElementById('eoeFilter').value;
+    uldaerFiler = document.getElementById('uldarFilter').value;
+    tocFilter = document.getElementById('tocFilter').value;
+    iccFilter = document.getElementById('iccFilter').value;
+    rubysanctumFilter = document.getElementById('rubysanctumFilter').value;
+
     filter10 = document.getElementById('filter10').value;
     filter25 = document.getElementById('filter25').value;
 
@@ -175,6 +188,38 @@ function filter(itemList) {
         if (naxFilter != null && itemList[i][1] == "Nax" && naxFilter == "false") {
             continue;
         }
+
+        if (preRaidFilter != null && itemList[i][1] == "Pre-Raid" && preRaidFilter == "false") {
+            continue;
+        }
+
+        if (voaFilter != null && itemList[i][1] == "VoA" && voaFilter == "false") {
+            continue;
+        }
+
+        if (onyxiaFilter != null && itemList[i][1] == "Onyxia" && onyxiaFilter == "false") {
+            continue;
+        }
+
+        if (obsidianFilter != null && itemList[i][1] == "Obsidian" && obsidianFilter == "false") {
+            continue;
+        }
+
+        if (eoeFilter != null && itemList[i][1] == "EoE" && eoeFilter == "false") {
+            continue;
+        }
+        if (uldaerFiler != null && itemList[i][1] == "Ulduar" && uldaerFiler == "false") {
+            continue;
+        }
+        if (tocFilter != null && itemList[i][1] == "ToC" && tocFilter == "false") {
+            continue;
+        }
+        if (iccFilter != null && itemList[i][1] == "ICC" && iccFilter == "false") {
+            continue;
+        }
+        if (rubysanctumFilter != null && itemList[i][1] == "Ruby Sanctum" && rubysanctumFilter == "false") {
+            continue;
+        }
         else if ((filter10 && itemList[i][2] == 10 && filter10 == "false") ||
             (filter25 && itemList[i][2] == 25 && filter25 == "false")) {
             continue;
@@ -234,7 +279,7 @@ function createItem(itemListContainer, item, key, i) {
     /*Boss*/
     var aitem = document.createElement('a');
     aitem.innerHTML = item[4] ?? searchItemSource(item[0]) ?? "";
-    aitem.style.width = "100px";
+    aitem.style.width = "140px";
     aitem.style.fontSize = "12px";
     itemListContainer.appendChild(aitem);
     if (i == 0) {

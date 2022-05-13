@@ -6,9 +6,14 @@ var classTypes = {
             Head: [
                 [51310, "ICC", 25, "HC", "HM"],
                 [40565, "Nax", 10, null, null],
-                [39625, "Nax", 25, null, null],
+                [39625, "Pre-Raid", 5, null, null],
                 [45336, "Uldar", 25, "HC", "HM"],
                 [51310, "ToC", 25, "HC", "HM"],
+                [45336, "Onyxia", 25, "HC", "HM"],
+                [45336, "Obsidian", 25, "HC", "HM"],
+                [45336, "EoE", 25, "HC", "HM"],
+                [45336, "Ruby Sanctum", 25, "HC", "HM"],
+                [45336, "VoA", 25, "HC", "HM"],
             ],
             Neck: [
                 [51310, "Nax", 10, null, null],
@@ -307,7 +312,7 @@ var classTypes = {
         },
         Feral: {
             Head: [
-                [40473, "Nax", 25, null, "Kel'Thuad"],
+                [40473, "Pre-Raid", 25, null, "Kel'Thuad"],
                 [40329, "Nax", 10, null, null],
                 [42550, "Nax", 25, null, null],
 
@@ -371,7 +376,7 @@ var classTypes = {
                 [40431, "Nax", 25, null, null]
             ],
             Trinket2: [
-                [44253, "Nax", 10, null, null],
+                [44253, "Inscripption", null, null, null],
                 [40684, "Nax", 25, null, null],
                 [40371, "Nax", 25, null, null],
                 [40431, "Nax", 25, null, null]
