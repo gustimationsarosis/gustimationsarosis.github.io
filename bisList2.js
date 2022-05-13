@@ -4,27 +4,33 @@ var initClass = "dk";
 var naxFilter, uldarFilter, tocFilter,
     voaFilter, onyxiaFilter, obsidianFilter,
     eoeFilter, iccFilter, rubysanctumFilter
-    filter10, filter25, preRaidFilter;
+filter10, filter25, preRaidFilter;
 
 var icon = document.createElement('span');
 icon.classList.add('material-icons-outlined');
-function myFunction(event, num) {
+function myFunction(event, num, rowId) {
     var dropDown = document.getElementById("myDropdown" + num);
+
+    if (rowId)
+        event = document.getElementById(rowId);
+    else {
+        event.stopPropagation();
+        event = event.target;
+    }
 
     if (dropDown == null)
         return
 
     dropDown.classList.toggle("show");
-    if (dropDown) {
-        event.target.removeAttribute("class");
-        event.target.classList.add('dropbtn', 'fa-solid', 'fa-chevron-down');
+    if (dropDown.classList.contains("show")) {
+        event.removeAttribute("class");
+        event.classList.add('dropbtn', 'fa-solid', 'fa-chevron-down');
 
     }
     else {
-        event.target.removeAttribute("class");
-        event.target.classList.add('dropbtn', 'fa-solid', 'fa-chevron-left');
+        event.removeAttribute("class");
+        event.classList.add('dropbtn', 'fa-solid', 'fa-chevron-left');
     }
-    console.log(event.target.innerHTML);
 }
 
 //player selector
@@ -234,6 +240,8 @@ function filter(itemList) {
 
 function createItem(itemListContainer, item, key, i) {
 
+
+
     /*Slot*/
     var aitem = document.createElement('a');
     aitem.innerHTML = key;
@@ -286,11 +294,26 @@ function createItem(itemListContainer, item, key, i) {
         var btn = document.createElement('button');
         btn.classList.add('dropbtn', 'fa-solid', 'fa-chevron-left');
         btn.setAttribute('onclick', 'myFunction(event,"' + key + '")');
+        btn.id = "dropDown" + key + "" + i;
+        itemListContainer.setAttribute('onclick', 'myFunction(event,"' + key + '","' + btn.id + '")');
         itemListContainer.appendChild(btn);
+        itemListContainer.style.cursor = "pointer";
     } else {
         var aitem = document.createElement('a');
         aitem.style.width = "20px";
         itemListContainer.appendChild(aitem);
+    }
+
+    //Tooltip
+    if (item[5]) {
+        itemListContainer.classList.add('tooltipCustom');
+        var tooltipSpan = itemListContainer.appendChild(document.createElement('span'));
+        tooltipSpan.classList.add('tooltipCustomtext');
+        tooltipSpan.id = "" + key + "" + i;
+        var toolTipHeader = tooltipSpan.appendChild(document.createElement('h3'));
+        toolTipHeader.innerHTML = "Notes:";
+        var p = tooltipSpan.appendChild(document.createElement('p'));
+        p.innerHTML = item[5];
     }
 }
 
