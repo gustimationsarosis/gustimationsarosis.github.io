@@ -4,10 +4,11 @@ var initClass = "dk";
 var naxFilter, uldarFilter, tocFilter,
     voaFilter, onyxiaFilter, obsidianFilter,
     eoeFilter, iccFilter, rubysanctumFilter
-filter10, filter25, preRaidFilter;
+filter10, filter25, preRaidFilter, craftedFilter;
 
-var icon = document.createElement('span');
-icon.classList.add('material-icons-outlined');
+//var icon = document.createElement('span');
+//icon.classList.add('material-icons-outlined');
+
 function myFunction(event, num, rowId) {
     var dropDown = document.getElementById("myDropdown" + num);
 
@@ -49,7 +50,7 @@ function filterValues() {
     tocFilter = document.getElementById('tocFilter').value;
     iccFilter = document.getElementById('iccFilter').value;
     rubysanctumFilter = document.getElementById('rubysanctumFilter').value;
-
+    craftedFilter = document.getElementById('craftedFilter').value;
     filter10 = document.getElementById('filter10').value;
     filter25 = document.getElementById('filter25').value;
 
@@ -190,6 +191,10 @@ function filter(itemList) {
     var filteredList = [];
 
     for (var i = 0; i < itemList.length; i++) {
+
+        if (craftedFilter != null && itemList[i][1] == "Crafted" && craftedFilter == "false") {
+            continue;
+        }
 
         if (naxFilter != null && itemList[i][1] == "Nax" && naxFilter == "false") {
             continue;

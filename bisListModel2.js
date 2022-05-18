@@ -4,6 +4,7 @@ var classTypes = {
         Blood: {
             image: "",
             Head: [
+                [51310, "Crafted", null, null, null, "Crafted item BoP or BoE you decide :)"],
                 [51310, "Nax", 25, "HC", "HM", "WHos idea was this?"],
                 [40565, "Nax", 10, null, null],
                 [39625, "Pre-Raid", 5, null, null],
@@ -376,7 +377,7 @@ var classTypes = {
                 [40431, "Nax", 25, null, null]
             ],
             Trinket2: [
-                [44253, "Inscripption", null, null, null],
+                [44253, "Crafted", null, null, null],
                 [40684, "Nax", 25, null, null],
                 [40371, "Nax", 25, null, null],
                 [40431, "Nax", 25, null, null]
