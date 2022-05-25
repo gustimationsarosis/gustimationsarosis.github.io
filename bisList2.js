@@ -24,12 +24,12 @@ function myFunction(event, num, rowId) {
 
     dropDown.classList.toggle("show");
     if (dropDown.classList.contains("show")) {
-        event.removeAttribute("class");
+        event.classList.remove('dropbtn', 'fa-solid', 'fa-chevron-left');
         event.classList.add('dropbtn', 'fa-solid', 'fa-chevron-down');
 
     }
     else {
-        event.removeAttribute("class");
+        event.classList.remove('dropbtn', 'fa-solid', 'fa-chevron-down');
         event.classList.add('dropbtn', 'fa-solid', 'fa-chevron-left');
     }
 }
@@ -245,12 +245,13 @@ function filter(itemList) {
 
 function createItem(itemListContainer, item, key, i) {
 
-
+    itemListContainer.classList.add("row");
 
     /*Slot*/
-    var aitem = document.createElement('a');
+    var aitem = document.createElement('div');
     aitem.innerHTML = key;
-    aitem.style.minWidth = "60px";
+    aitem.classList.add("col");
+
     itemListContainer.appendChild(aitem);
 
     /*Item icon*/
@@ -258,10 +259,10 @@ function createItem(itemListContainer, item, key, i) {
     var iconPath = "url('Images/Icons/" + searchCache(item[0]) + ".jpg')";
     //aitem.innerHTML = searchCache(item[0]);
     aitem.style.backgroundImage = iconPath;
-    aitem.style.width = "64px";
     aitem.style.height = "64px";
     aitem.style.backgroundSize = "46px";
     aitem.style.backgroundRepeat = "no-repeat";
+    aitem.classList.add("col");
     itemListContainer.appendChild(aitem);
 
     /*ToolTip*/
@@ -269,43 +270,50 @@ function createItem(itemListContainer, item, key, i) {
     aitem.href = "#";
     aitem.rel = "item=" + item[0];
     aitem.innerHTML = "";
-    aitem.style.width = "250px";
     aitem.classList.add("anon");
+    aitem.classList.add("col");
 
     itemListContainer.appendChild(aitem);
 
     /*Raid*/
     var aitem = document.createElement('a');
     aitem.innerHTML = item[1] ?? "";
-    aitem.style.width = "20px";
+    aitem.classList.add("col");
+
     itemListContainer.appendChild(aitem);
     /*Raid Size*/
     var aitem = document.createElement('a');
     aitem.innerHTML = item[2] ?? "";
-    aitem.style.width = "20px";
+    aitem.classList.add("col");
+
     itemListContainer.appendChild(aitem);
     /*Heroic?*/
     var aitem = document.createElement('a');
     aitem.innerHTML = item[3] ?? "";
-    aitem.style.width = "20px";
+    aitem.classList.add("col");
+
     itemListContainer.appendChild(aitem);
     /*Boss*/
     var aitem = document.createElement('a');
     aitem.innerHTML = item[4] ?? searchItemSource(item[0]) ?? "";
-    aitem.style.width = "140px";
     aitem.style.fontSize = "12px";
+    aitem.classList.add("col");
+
     itemListContainer.appendChild(aitem);
     if (i == 0) {
         var btn = document.createElement('button');
         btn.classList.add('dropbtn', 'fa-solid', 'fa-chevron-left');
         btn.setAttribute('onclick', 'myFunction(event,"' + key + '")');
         btn.id = "dropDown" + key + "" + i;
+        btn.classList.add("col");
         itemListContainer.setAttribute('onclick', 'myFunction(event,"' + key + '","' + btn.id + '")');
         itemListContainer.appendChild(btn);
         itemListContainer.style.cursor = "pointer";
+
     } else {
         var aitem = document.createElement('a');
-        aitem.style.width = "20px";
+        aitem.classList.add("col");
+
         itemListContainer.appendChild(aitem);
     }
 

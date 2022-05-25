@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <style>
         .dropContainer {
-            display: grid;
+        display: grid;
         }
 
         .container {
-            display: flex;
+        display: flex;
         }
 
-            .container.space-between {
-                justify-content: space-between;
-            }
+        .container.space-between {
+        justify-content: space-between;
+        }
 
         .dropDownitem {
-            border-bottom-style: solid;
-            border-bottom-width: 1px;
-            border-bottom-color: black;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-color: black;
         }
     </style>
     <meta charset="utf-8" />
@@ -28,10 +27,6 @@
 
     <a href="bisList.html"> BIS List</a>
     <a href="bisListRep.html"> BIS List Rep</a>
-
-    <!--<table id="bisListTable">
-    </table>-->
-
 
     <h1>
         WotLK Raid Comp Selector Tool
@@ -57,6 +52,19 @@
             <input type="hidden" id="totalRaidComp" />
         </div>
     </div>
+    <div class="container buffListStyles">
+        <div style="display:inline-flex">
+            <div style="margin-left: 15px">
+                <label>
+                    Raid Buffs
+                </label>
+                <ul id="raidBuffList" class="staticBuffList">
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
     <div style="display:inline-flex">
         <div style="margin-left: 15px">
             <label>
@@ -82,56 +90,38 @@
 </body>
 </html>
 
+<style>
+    .buffListStyles {
+    font-size: 16px;
+    cursor: pointer;
+    }
+    .buffListItemInactive{
+    color:gray;
+    }
+    .staticBuffList{
+    column-count: 4 !important;
+    }
+</style>
 
 <script type="text/javascript" src="https://wotlk.evowow.com/static/widgets/power.js"></script>
 <script>var aowow_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": true }</script>
 <link rel="stylesheet" href="main.css" />
 <link rel="stylesheet" href="./CSS/customToolTip.css">
-<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gustimationsarosis/wotlkthings@4a392259cf536d9b008b0f566d98e152ba441a57/main.css" />
 <script src="WotLK Models.js"></script>
 <script src="WotLK Raid Tables.js"></script>
 <script src="DragUtils.js"></script>
-<!--<script src="https://cdn.jsdelivr.net/gh/gustimationsarosis/wotlkthings@4a392259cf536d9b008b0f566d98e152ba441a57/DragUtils.js"></script>-->
 <script src="DragUtils.js"></script>
 <script src="RaidStructureList.js"></script>
 <script src="WotLK Url Updater.js"></script>
 
-<link rel="stylesheet" href="bisList.css" />
-<link rel="stylesheet" href="bisList2.css" />
-
-<script src="bisListModel.js"></script>
-<!--<script src="bisList.js"></script>-->
-
-
 
 <script>
     var totalRaidComp;
+    buildRaidBuffGroupTable();
     buildRaidTable();
     buildRaidSlecTable();
     buildRaidStructure();
     getUrlParameters();
 
-    //function myFunction(num) {
-    //    document.getElementById("myDropdown"+num).classList.toggle("show");
-    //}
-
-    //// Close the dropdown if the user clicks outside of it
-    //window.onclick = function (event) {
-    //    if (!event.target.matches('.clickME')) {
-    //        var dropdowns = document.getElementsByClassName("dropdown-content");
-    //        var i;
-    //        for (i = 0; i < dropdowns.length; i++) {
-    //            var openDropdown = dropdowns[i];
-    //            if (openDropdown.classList.contains('show')) {
-    //                openDropdown.classList.remove('show');
-    //            }
-    //        }
-    //    }
-    //}
 
 </script>

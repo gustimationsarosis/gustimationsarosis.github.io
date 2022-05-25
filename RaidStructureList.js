@@ -1,19 +1,23 @@
 var structure = { Tanks: 0, DPS: 0, Healers: 0 };
 var totalRaidComp = [];
+var totalBuffList = [];
+var totalDeBuffList = [];
 
 function updateCompSelection(updateUrlComp = true) {
     var totalRaidComp = [];
-    var totalBuffList = [];
-    var totalDeBuffList = [];
+    totalBuffList = [];
+    totalDeBuffList = [];
 
     var buffList = document.getElementById('raidBuffs');
     var deBuffList = document.getElementById('raidDeBuffs');
+    var raidBuffList = document.getElementById('raidBuffList');
 
     var raidCompTable = document.getElementById("raidComp");
     var emptyRaid = true;
 
     buffList.innerHTML = "";
     deBuffList.innerHTML = "";
+    buildRaidBuffGroupTable();
 
     structure = { Tanks: 0, DPS: 0, Healers: 0 };
 
@@ -92,11 +96,11 @@ function UpdateRaidStructure(type) {
 
 function updateBuffList(totalBuffList, buffList, dataType) {
     var playerBuffs = getUniqueListBy(totalBuffList, dataType)
+    raidBuffGroupTable(totalBuffList);
 
     for (var playerBuffList = 0; playerBuffList < playerBuffs.length; playerBuffList++) {
 
         var item = buffList.appendChild(document.createElement('li'));
-
         if (dataType == "buff") {
             if (playerBuffs[playerBuffList].spell == null)
                 item.innerHTML = playerBuffs[playerBuffList].buff;

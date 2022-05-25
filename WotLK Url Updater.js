@@ -10,6 +10,7 @@ function reset() {
     document.location.hash = "";
     document.getElementById('totalRaidComp').val = "";
     buildRaidStructure();
+    buildRaidBuffGroupTable();
 }
 
 function updateUrl() {

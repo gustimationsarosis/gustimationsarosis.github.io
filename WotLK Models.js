@@ -1,3 +1,46 @@
+const raidBuffList = [
+    [ 1, "Gift of the Wild", "druid" ],
+    [ 2, "Strength and Agility", "str/agi" ],
+    [ 3, "Blessing of Kings", "blessing" ],
+    [ 4, "Attack Power", "attackPower" ],
+    [ 5, "10% Attack Power", "attackPower%" ],
+    [ 6, "20% Melee Haste", "" ],
+    [ 7, "3% Damage", "" ],
+    [ 8, "20% Haste", "" ],
+    [ 9, "Blood Lust", "" ],
+    [ 10, "Intellect", "" ],
+    [ 11, "Spell Power", "" ],
+    [ 12, "5% Spell Crit", "" ],
+    [ 13, "5% Spell Haste", "" ],
+    [ 14, "Spirt", "" ],
+    [ 15, "Stamina", "" ],
+    [ 16, "Health", "" ],
+    [17, "Focus Magic", ""],
+    [18, "Hysteria", ""],
+    [19, "Tricks of the Trade", ""],
+    [20, "Divine Guardian", ""],
+    [21, "Blessing of Sanctuary", ""],
+    [22, "30% Bleed", ""],
+    [23, "4% Physical Damage", ""],
+    [24, "3% Physical Crit", ""],
+    [25, "5% Spell Crit", ""],
+    [26, "13% Spell Damage", ""],
+    [27, "20% Amour Debuff", ""],
+    [28, "5% Armor", ""],
+    [29, "20% Attack Speed", ""],
+    [30, "Physical Hit", ""],
+    [31, "Judgement of Wisdom", ""],
+    [32, "Mana Replenishment", ""],
+    [33, "Mana Restoration", ""],
+    [34, "Mana Tide", ""],
+    [35, "Rapture", ""],
+    [36, "Revitalise", ""],
+    [37, "Innervate", ""],
+    [38, "Improved Leader of the Pack", ""],
+    [39, "Judgement of Light", ""],
+    [40, "Vampiriv Embrace", ""]
+];
+
 
 function playerColour(row) {
     var backGroundColour;
@@ -74,16 +117,16 @@ function PlayerTypev2(row) {
     return playerType;
 }
 function PlayerType(row) {
-    var playerType = { id: "", text: "", type: "", raidBuffs: [], raidDeBuffs: [], icon: "" };
+    var playerType = { id: "", text: "", type: "", raidBuffs: [], raidDeBuffs: [], icon: ""};
     switch (row) {
         case "p00":
             playerType.id = "a";
             playerType.text = "Blood DK";
             playerType.type = 'Tank';
             playerType.raidBuffs = [
-                { buff: "Horn Of Winter", spell: "57330&amp;buff" },
-                { buff: "Abomination's Might", spell: "53138&amp;buff" }];
-            playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_deathknight_bloodpresence.jpg";
+                { buff: "Horn Of Winter", spell: "57330&amp;buff", raidGroupId: 2 },
+                { buff: "Abomination's Might", spell: "53138&amp;buff", raidGroupIdL: 5 }];
+            playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_deathknight_bloodpresence.jpg"
 
             break;
         case "p01":
@@ -91,8 +134,8 @@ function PlayerType(row) {
             playerType.text = "Frost DK";
             playerType.type = 'DPS';
             playerType.raidBuffs = [
-                { buff: "Horn Of Winter", spell: "57330&amp;buff" },
-                { buff: "Icy Talons", spell: "50887" }];
+                { buff: "Horn Of Winter", spell: "57330&amp;buff", raidGroupId: 2 },
+                { buff: "Icy Talons", spell: "50887", raidGroupId: 5 }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_deathknight_frostpresence.jpg";
 
             break;
@@ -101,8 +144,10 @@ function PlayerType(row) {
             playerType.text = "Unholy DK";
             playerType.type = 'DPS';
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_deathknight_unholypresence.jpg";
+            playerType.raidBuffs = [
+                { buff: "Horn Of Winter", spell: "57330&amp;buff", raidGroupId: 2 }];
             playerType.raidDeBuffs = [
-                { deBuff: "Ebon Plaguebringer", spell: "51161" }];
+                { deBuff: "Ebon Plaguebringer", spell: "51161", raidGroupId: 28 }];
 
             break;
         case "p10":
@@ -110,9 +155,9 @@ function PlayerType(row) {
             playerType.text = "Balance";
             playerType.type = 'DPS';
             playerType.raidBuffs = [
-                { buff: "Improved Moonkin Form", spell: "48396" }];
+                { buff: "Improved Moonkin Form", spell: "48396", raidGroupId: 13 }];
             playerType.raidDeBuffs = [
-                { deBuff: "Earth and Moon", spell: "spell=48511" }];
+                { deBuff: "Earth and Moon", spell: "spell=48511", raidGroupId: 26 }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_nature_starfall.jpg";
 
             break;
@@ -252,7 +297,7 @@ function PlayerType(row) {
             playerType.type = 'DPS';
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/ability_rogue_deadlybrew.jpg";
             playerType.raidDeBuffs = [
-                { deBuff: "Master Poisoner", spell: "20" }];
+                { deBuff: "Master Poisoner", spell: "31226" }];
 
             break;
         case "p61":
@@ -286,7 +331,10 @@ function PlayerType(row) {
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_shaman_improvedstormstrike.jpg";
             playerType.raidBuffs = [
                 { buff: "Unleashed Rage", spell: "30809&amp;buff" },
-                { buff: "Improved Windfury Totem", spell: "29193" }];
+                { buff: "Improved Windfury Totem", spell: "29193" },
+                { buff: "Strength of Earth Totem", spell: "58643", raidGroupId: 2}
+
+            ];
 
             break;
         case "p72":

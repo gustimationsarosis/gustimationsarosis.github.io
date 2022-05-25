@@ -57,6 +57,7 @@ function buildRaidSlecTable() {
             for (var rb = 0; rb < playerType.raidBuffs.length; rb++) {
                 var p = tooltipSpan.appendChild(document.createElement('p'));
                 p.innerHTML = playerType.raidBuffs[rb].buff;
+                p.style.lineHeight = "0.2";
             }
 
             //De-buff tips
@@ -65,6 +66,7 @@ function buildRaidSlecTable() {
             for (var rb = 0; rb < playerType.raidDeBuffs.length; rb++) {
                 var p = tooltipSpan.appendChild(document.createElement('p'));
                 p.innerHTML = playerType.raidDeBuffs[rb].deBuff;
+                p.style.lineHeight = "0.2";
             }
 
             row.style.backgroundColor = playerColour(i);
@@ -90,6 +92,67 @@ function buildRaidSlecTable() {
             row.appendChild(textSpan);
             row.appendChild(img);
 
+        }
+    }
+}
+
+function buildRaidBuffGroupTable() {
+    var raidBuffListItem = document.getElementById('raidBuffList');
+    raidBuffListItem.innerHTML = "";
+
+    for (var i = 0; i < raidBuffList.length; i++) {
+        var raidBuffItem = document.createElement('li');
+        raidBuffItem.innerHTML = raidBuffList[i][1];
+        raidBuffItem.classList.add('tooltipCustom', 'buffListItemInactive');
+        raidBuffItem.id = "raidBuff" + raidBuffList[i][0];
+
+
+        //Get list of current Buffs!?!?
+        var tooltipSpan = raidBuffItem.appendChild(document.createElement('span'));
+        tooltipSpan.classList.add('tooltipCustomtext');
+        tooltipSpan.id = "" + (i + 1) + "RaidBuffTooltipCustom";
+        tooltipSpan.setAttribute('hidden', true);
+
+        raidBuffListItem.appendChild(raidBuffItem);
+    }
+}
+
+function raidBuffGroupTable(totalBuffList) {
+
+    for (var i = 0; i < totalBuffList.length; i++) {
+        var buffItem = "raidBuff" + totalBuffList[i].raidGroupId;
+        var raidBuffListItem = document.getElementById(buffItem);
+
+        if (raidBuffListItem != null) {
+            // Un-gray
+            raidBuffListItem.classList.remove('buffListItemInactive');
+            //Un-hide tooltip
+            var tooltip = document.getElementById(totalBuffList[i].raidGroupId + "RaidBuffTooltipCustom");
+            tooltip.removeAttribute('hidden');
+
+            if (tooltip.querySelector('p') != null) {
+                var buffs = tooltip.querySelector('p').childNodes;
+
+                for (var j = 0; j < buffs.length; j++) {
+                    if (totalBuffList[i].buff == buffs[j].data) {
+                        continue;
+                    }
+                    else {
+                        var p = tooltip.appendChild(document.createElement('p'));
+                        p.innerHTML = totalBuffList[i].buff ?? totalBuffList[i].deBuff;
+                        p.style.lineHeight = "0.2";
+                        p.style.display = "contents";
+                    }
+                }
+            }
+            else {
+
+                var p = tooltip.appendChild(document.createElement('p'));
+                p.innerHTML = totalBuffList[i].buff ?? totalBuffList[i].deBuff;
+                p.style.lineHeight = "0.2";
+                p.style.display = "contents";
+                continue;
+            }
         }
     }
 }
