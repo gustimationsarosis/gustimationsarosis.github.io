@@ -1,44 +1,45 @@
 const raidBuffList = [
-    [ 1, "Gift of the Wild", "druid" ],
-    [ 2, "Strength and Agility", "str/agi" ],
-    [ 3, "Blessing of Kings", "blessing" ],
-    [ 4, "Attack Power", "attackPower" ],
-    [ 5, "10% Attack Power", "attackPower%" ],
-    [ 6, "20% Melee Haste", "" ],
-    [ 7, "3% Damage", "" ],
-    [ 8, "20% Haste", "" ],
-    [ 9, "Blood Lust", "" ],
-    [ 10, "Intellect", "" ],
-    [ 11, "Spell Power", "" ],
-    [ 12, "5% Spell Crit", "" ],
-    [ 13, "5% Spell Haste", "" ],
-    [ 14, "Spirt", "" ],
-    [ 15, "Stamina", "" ],
-    [ 16, "Health", "" ],
-    [17, "Focus Magic", ""],
-    [18, "Hysteria", ""],
-    [19, "Tricks of the Trade", ""],
-    [20, "Divine Guardian", ""],
-    [21, "Blessing of Sanctuary", ""],
-    [22, "30% Bleed", ""],
-    [23, "4% Physical Damage", ""],
-    [24, "3% Physical Crit", ""],
-    [25, "5% Spell Crit", ""],
-    [26, "13% Spell Damage", ""],
-    [27, "20% Amour Debuff", ""],
-    [28, "5% Armor", ""],
-    [29, "20% Attack Speed", ""],
-    [30, "Physical Hit", ""],
-    [31, "Judgement of Wisdom", ""],
-    [32, "Mana Replenishment", ""],
-    [33, "Mana Restoration", ""],
-    [34, "Mana Tide", ""],
-    [35, "Rapture", ""],
-    [36, "Revitalise", ""],
-    [37, "Innervate", ""],
-    [38, "Improved Leader of the Pack", ""],
-    [39, "Judgement of Light", ""],
-    [40, "Vampiriv Embrace", ""]
+    [1, "Gift of the Wild", "druid"],
+    [2, "Strength and Agility", "str/agi"],
+    [3, "Blessing of Kings", "blessing"],
+    [4, "Attack Power", "attackPower"],
+    [5, "10% Attack Power", "attackPower%"],
+    [6, "5% Melee Crit", ""],
+    [7, "20% Melee Haste", ""],
+    [8, "3% Damage", ""],
+    [9, "20% Haste", ""],
+    [10, "Blood Lust", ""],
+    [11, "Intellect", ""],
+    [12, "Spell Power", ""],
+    [13, "5% Spell Crit", ""],
+    [14, "5% Spell Haste", ""],
+    [15, "Spirt", ""],
+    [16, "Stamina", ""],
+    [17, "Health", ""],
+    [18, "Focus Magic", ""],
+    [19, "Hysteria", ""],
+    [20, "Tricks of the Trade", ""],
+    [21, "Divine Guardian", ""],
+    [22, "Blessing of Sanctuary", ""],
+    [23, "30% Bleed", ""],
+    [24, "4% Physical Damage", ""],
+    [25, "3% Physical Crit", ""],
+    [26, "5% Spell Crit", ""],
+    [27, "13% Spell Damage", ""],
+    [28, "20% Amour Debuff", ""],
+    [29, "5% Armor", ""],
+    [30, "20% Attack Speed", ""],
+    [31, "Physical Hit", ""],
+    [32, "Judgement of Wisdom", ""],
+    [33, "Mana Replenishment", ""],
+    [34, "Mana Restoration", ""],
+    [35, "Mana Tide", ""],
+    [36, "Rapture", ""],
+    [37, "Revitalise", ""],
+    [38, "Innervate", ""],
+    [29, "Improved Leader of the Pack", ""],
+    [40, "Judgement of Light", ""],
+    [41, "Vampiriv Embrace", ""]
 ];
 
 
@@ -117,7 +118,7 @@ function PlayerTypev2(row) {
     return playerType;
 }
 function PlayerType(row) {
-    var playerType = { id: "", text: "", type: "", raidBuffs: [], raidDeBuffs: [], icon: ""};
+    var playerType = { id: "", text: "", type: "", raidBuffs: [], raidDeBuffs: [], icon: "" };
     switch (row) {
         case "p00":
             playerType.id = "a";
@@ -147,7 +148,7 @@ function PlayerType(row) {
             playerType.raidBuffs = [
                 { buff: "Horn Of Winter", spell: "57330&amp;buff", raidGroupId: 2 }];
             playerType.raidDeBuffs = [
-                { deBuff: "Ebon Plaguebringer", spell: "51161", raidGroupId: 28 }];
+                { deBuff: "Ebon Plaguebringer", spell: "51161", raidGroupId: 27 }];
 
             break;
         case "p10":
@@ -157,7 +158,7 @@ function PlayerType(row) {
             playerType.raidBuffs = [
                 { buff: "Improved Moonkin Form", spell: "48396", raidGroupId: 13 }];
             playerType.raidDeBuffs = [
-                { deBuff: "Earth and Moon", spell: "spell=48511", raidGroupId: 26 }];
+                { deBuff: "Earth and Moon", spell: "spell=48511", raidGroupId: 27 }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/spell_nature_starfall.jpg";
 
             break;
@@ -166,7 +167,7 @@ function PlayerType(row) {
             playerType.text = "Feral";
             playerType.type = 'DPS';
             playerType.raidBuffs = [
-                { buff: "Leader of the Pack", spell: "17007" }];
+                { buff: "Leader of the Pack", spell: "17007", raidGroupId: 6 }];
             playerType.raidDeBuffs = [
                 { deBuff: "Faerie Fire", spell: "770&amp;buff" }];
             playerType.icon = "https://www.scottejaye.com/content/images/2022/04/ability_druid_catform.jpg";
@@ -332,7 +333,7 @@ function PlayerType(row) {
             playerType.raidBuffs = [
                 { buff: "Unleashed Rage", spell: "30809&amp;buff" },
                 { buff: "Improved Windfury Totem", spell: "29193" },
-                { buff: "Strength of Earth Totem", spell: "58643", raidGroupId: 2}
+                { buff: "Strength of Earth Totem", spell: "58643", raidGroupId: 2 }
 
             ];
 

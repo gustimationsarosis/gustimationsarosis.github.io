@@ -99,7 +99,9 @@
     color:gray;
     }
     .staticBuffList{
-    column-count: 4 !important;
+    display: grid;
+    grid-template-columns: repeat(4, 3fr);
+    grid-auto-flow:dense;
     }
 </style>
 

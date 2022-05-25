@@ -134,7 +134,8 @@ function raidBuffGroupTable(totalBuffList) {
                 var buffs = tooltip.querySelector('p').childNodes;
 
                 for (var j = 0; j < buffs.length; j++) {
-                    if (totalBuffList[i].buff == buffs[j].data) {
+                    if (totalBuffList[i].buff == buffs[j].data
+                        || totalBuffList[i].deBuff == buffs[j].data) {
                         continue;
                     }
                     else {
@@ -142,6 +143,7 @@ function raidBuffGroupTable(totalBuffList) {
                         p.innerHTML = totalBuffList[i].buff ?? totalBuffList[i].deBuff;
                         p.style.lineHeight = "0.2";
                         p.style.display = "contents";
+                        tooltip.appendChild(document.createElement('br'));
                     }
                 }
             }
@@ -151,6 +153,7 @@ function raidBuffGroupTable(totalBuffList) {
                 p.innerHTML = totalBuffList[i].buff ?? totalBuffList[i].deBuff;
                 p.style.lineHeight = "0.2";
                 p.style.display = "contents";
+                tooltip.appendChild(document.createElement('br'));
                 continue;
             }
         }
