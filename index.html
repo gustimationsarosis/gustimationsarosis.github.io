@@ -3,21 +3,21 @@
 <head>
     <style>
         .dropContainer {
-        display: grid;
+            display: grid;
         }
 
         .container {
-        display: flex;
+            display: flex;
         }
 
-        .container.space-between {
-        justify-content: space-between;
-        }
+            .container.space-between {
+                justify-content: space-between;
+            }
 
         .dropDownitem {
-        border-bottom-style: solid;
-        border-bottom-width: 1px;
-        border-bottom-color: black;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-bottom-color: black;
         }
     </style>
     <meta charset="utf-8" />
@@ -41,7 +41,7 @@
             <table id="raidComp">
                 <caption>Raid composition</caption>
             </table>
-            <button onclick="reset()">Clear Raid</button>
+            <button class="btn btn-primary" onclick="reset()">Clear Raid</button>
         </div>
         <div>
             <label>
@@ -55,6 +55,9 @@
     <div class="container buffListStyles">
         <div style="display:inline-flex">
             <div style="margin-left: 15px">
+                <!--<button id="123123" type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+                    Tooltip with HTML
+                </button>-->
                 <label>
                     Raid Buffs
                 </label>
@@ -92,18 +95,26 @@
 
 <style>
     .buffListStyles {
-    font-size: 16px;
-    cursor: pointer;
+        font-size: 16px;
+        cursor: pointer;
     }
-    .buffListItemInactive{
-    color:gray;
+
+    .buffListItemInactive {
+        color: #c9c9c9;
     }
-    .staticBuffList{
-    display: grid;
-    grid-template-columns: repeat(4, 3fr);
-    grid-auto-flow:dense;
+
+    .staticBuffList {
+        column-count: 4;
     }
+
+/*    .tooltip {
+       visibility: hidden
+    }*/
 </style>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 
 <script type="text/javascript" src="https://wotlk.evowow.com/static/widgets/power.js"></script>
 <script>var aowow_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": true }</script>
@@ -118,6 +129,9 @@
 
 
 <script>
+    function getUniqueListBy(buffs, key) {
+        return [...new Map(buffs.map(item => [item[key], item])).values()]
+    }
     var totalRaidComp;
     buildRaidBuffGroupTable();
     buildRaidTable();

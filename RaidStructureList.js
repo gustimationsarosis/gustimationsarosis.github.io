@@ -17,7 +17,6 @@ function updateCompSelection(updateUrlComp = true) {
 
     buffList.innerHTML = "";
     deBuffList.innerHTML = "";
-    buildRaidBuffGroupTable();
 
     structure = { Tanks: 0, DPS: 0, Healers: 0 };
 
@@ -96,7 +95,7 @@ function UpdateRaidStructure(type) {
 
 function updateBuffList(totalBuffList, buffList, dataType) {
     var playerBuffs = getUniqueListBy(totalBuffList, dataType)
-    raidBuffGroupTable(totalBuffList);
+    //raidBuffGroupTable(totalBuffList);
 
     for (var playerBuffList = 0; playerBuffList < playerBuffs.length; playerBuffList++) {
 
@@ -129,9 +128,6 @@ function updateBuffList(totalBuffList, buffList, dataType) {
     }
 }
 
-function getUniqueListBy(buffs, key) {
-    return [...new Map(buffs.map(item => [item[key], item])).values()]
-}
 
 function preventMouseIconEvent(event) {
     event.preventDefault();

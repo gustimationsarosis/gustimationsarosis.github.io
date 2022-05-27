@@ -108,54 +108,71 @@ function buildRaidBuffGroupTable() {
 
 
         //Get list of current Buffs!?!?
-        var tooltipSpan = raidBuffItem.appendChild(document.createElement('span'));
-        tooltipSpan.classList.add('tooltipCustomtext');
-        tooltipSpan.id = "" + (i + 1) + "RaidBuffTooltipCustom";
-        tooltipSpan.setAttribute('hidden', true);
+        //var tooltipSpan = raidBuffItem.appendChild(document.createElement('span'));
+        //tooltipSpan.classList.add('tooltipCustomtext');
+        //tooltipSpan.id = "" + (i + 1) + "RaidBuffTooltipCustom";
+        //tooltipSpan.setAttribute('hidden', true);
 
         raidBuffListItem.appendChild(raidBuffItem);
     }
 }
 
-function raidBuffGroupTable(totalBuffList) {
+function groupBy(arr, property) {
+    return arr.reduce(function (memo, x) {
+        if (!memo[x[property]]) { memo[x[property]] = []; }
+        memo[x[property]].push(x);
+        return memo;
+    }, {});
+}
 
-    for (var i = 0; i < totalBuffList.length; i++) {
-        var buffItem = "raidBuff" + totalBuffList[i].raidGroupId;
+function raidBuffGroupTable(buffList, deBuffList) {
+    removeTooltips();
+
+    //var totalBuffList = buffList.concat(deBuffList);
+    var uniqueBuffList = getUniqueListBy(buffList, "buff");
+    var uniqueDeBuffList = getUniqueListBy(deBuffList, "deBuff");
+    var uniqueList = uniqueBuffList.concat(uniqueDeBuffList);
+
+    var BuffById = Object.values(groupBy(uniqueList, "raidGroupId"));
+    //list of grouped tooltips
+    for (var i = 0; i < BuffById.length; i++) {
+        var buffItem = "raidBuff" + BuffById[i][0].raidGroupId;
+        if (BuffById[i][0].raidGroupId == null)
+            continue;
         var raidBuffListItem = document.getElementById(buffItem);
-
-        if (raidBuffListItem != null) {
-            // Un-gray
+        if (raidBuffListItem.classList?.contains('buffListItemInactive'))
             raidBuffListItem.classList.remove('buffListItemInactive');
-            //Un-hide tooltip
-            var tooltip = document.getElementById(totalBuffList[i].raidGroupId + "RaidBuffTooltipCustom");
-            tooltip.removeAttribute('hidden');
 
-            if (tooltip.querySelector('p') != null) {
-                var buffs = tooltip.querySelector('p').childNodes;
+        var innerHtmlText = "";
+        for (var j = 0; j < BuffById[i].length; j++) {
+            var text = BuffById[i][j].buff ?? BuffById[i][j].deBuff;
+            innerHtmlText += "<p>" + text + "</p>";
+        }
 
-                for (var j = 0; j < buffs.length; j++) {
-                    if (totalBuffList[i].buff == buffs[j].data
-                        || totalBuffList[i].deBuff == buffs[j].data) {
-                        continue;
-                    }
-                    else {
-                        var p = tooltip.appendChild(document.createElement('p'));
-                        p.innerHTML = totalBuffList[i].buff ?? totalBuffList[i].deBuff;
-                        p.style.lineHeight = "0.2";
-                        p.style.display = "contents";
-                        tooltip.appendChild(document.createElement('br'));
-                    }
-                }
-            }
-            else {
+        new bootstrap.Tooltip(raidBuffListItem,
+            {
+                html: true,
+                title: innerHtmlText
+            });
 
-                var p = tooltip.appendChild(document.createElement('p'));
-                p.innerHTML = totalBuffList[i].buff ?? totalBuffList[i].deBuff;
-                p.style.lineHeight = "0.2";
-                p.style.display = "contents";
-                tooltip.appendChild(document.createElement('br'));
-                continue;
-            }
+    }
+
+    return;
+}
+
+function removeTooltips() {
+    //var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    //var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    //    return new tooltipTriggerEl.dispose();
+    //})
+
+    var test = document.getElementById('raidBuffList').children;
+    for (var i = 0; i < test.length; i++) {
+        test[i].classList.add('buffListItemInactive');
+        var tooltip = bootstrap.Tooltip.getInstance(test[i])
+        if (tooltip != null) {
+            tooltip.dispose();
         }
     }
+
 }

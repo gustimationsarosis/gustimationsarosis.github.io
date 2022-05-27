@@ -52,4 +52,5 @@ function getUrlParameters() {
             updateUrlComp = false
         );
     }
+//    raidBuffGroupTable(totalBuffList, totalDeBuffList);
 }

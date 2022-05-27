@@ -13,6 +13,7 @@ function dragEnd(ev) {
     }
     clearRaidBox(target);
     updateCompSelection();
+    raidBuffGroupTable(totalBuffList, totalDeBuffList);
 }
 
 function selectPlayerCLass(ev) {
@@ -96,6 +97,7 @@ function drop(ev, onLoad, updateUrlComp = true) {
         clearRaidBox(fe);
     }
     updateCompSelection(updateUrlComp);
+    raidBuffGroupTable(totalBuffList, totalDeBuffList);
 }
 
 function clearRaidBox(id) {
