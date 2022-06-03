@@ -4,7 +4,7 @@ var initClass = "dk";
 var naxFilter, uldarFilter, tocFilter,
     voaFilter, onyxiaFilter, obsidianFilter,
     eoeFilter, iccFilter, rubysanctumFilter,
-filter10, filter25, preRaidFilter, craftedFilter;
+    filter10, filter25, preRaidFilter, craftedFilter;
 
 //var icon = document.createElement('span');
 //icon.classList.add('material-icons-outlined');
@@ -371,13 +371,18 @@ function searchItemSource(id) {
                 return itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].Boss;
 
             // 
-            else if (itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].TokenMap != null) {
+            else if (itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].TokenMap != null &&
+                itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].TokenMap != "") {
                 if (itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].TokenMap.item.key != null) {
                     if (itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[1].Boss != null) {
                         return itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[1].Boss;
                     }
                     return itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].TokenMap.item.key.string;
                 }
+            }
+            else if (itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].FactionName != null) {
+                var rep = itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].FactionName + " - ";
+                return "" + rep + itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].Level;
             }
             else if (itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].Quest != null) {
                 return itemSource.dictionary.item[i].value.ArrayOfItemLocation.ItemLocation[0].Quest;
