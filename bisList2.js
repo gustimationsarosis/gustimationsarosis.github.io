@@ -3,7 +3,7 @@ var model = classTypes.dk.Blood;
 var initClass = "dk";
 var naxFilter, uldarFilter, tocFilter,
     voaFilter, onyxiaFilter, obsidianFilter,
-    eoeFilter, iccFilter, rubysanctumFilter
+    eoeFilter, iccFilter, rubysanctumFilter,
 filter10, filter25, preRaidFilter, craftedFilter;
 
 //var icon = document.createElement('span');
@@ -34,6 +34,23 @@ function myFunction(event, num, rowId) {
     }
 }
 
+function myFunction3(event, num, rowId) {
+    var dropDown = document.getElementById("myDropdown" + num);
+
+    if (rowId)
+        event = document.getElementById(rowId);
+    else {
+        event.stopPropagation();
+        event = event.target;
+    }
+
+    if (dropDown == null)
+        return
+
+    dropDown.classList.toggle("slectorDisplay");
+
+}
+
 //player selector
 function myFunction2(event, num) {
     document.getElementById("myDropdown" + num).classList.toggle("show");
@@ -46,7 +63,7 @@ function filterValues() {
     onyxiaFilter = document.getElementById('onyxiaFilter').value;
     obsidianFilter = document.getElementById('obsidianFilter').value;
     eoeFilter = document.getElementById('eoeFilter').value;
-    uldaerFiler = document.getElementById('uldarFilter').value;
+    uldarFilter = document.getElementById('uldarFilter').value;
     tocFilter = document.getElementById('tocFilter').value;
     iccFilter = document.getElementById('iccFilter').value;
     rubysanctumFilter = document.getElementById('rubysanctumFilter').value;
@@ -219,7 +236,7 @@ function filter(itemList) {
         if (eoeFilter != null && itemList[i][1] == "EoE" && eoeFilter == "false") {
             continue;
         }
-        if (uldaerFiler != null && itemList[i][1] == "Ulduar" && uldaerFiler == "false") {
+        if (uldarFilter != null && itemList[i][1] == "Ulduar" && uldarFilter == "false") {
             continue;
         }
         if (tocFilter != null && itemList[i][1] == "ToC" && tocFilter == "false") {

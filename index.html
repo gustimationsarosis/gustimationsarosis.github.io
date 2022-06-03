@@ -24,67 +24,68 @@
     <title>WotLK Raid Comp Selector Tool</title>
 </head>
 <body>
-
-    <a href="bisList.html"> BIS List</a>
-    <a href="bisListRep.html"> BIS List Rep</a>
+    <div class="container">
+        <a href="bisList.html"> BIS List</a>
+        <a href="bisListRep.html"> BIS List Rep</a>
+    </div>
 
     <h1>
         WotLK Raid Comp Selector Tool
     </h1>
-    <div style="display:inline-flex; flex-direction:column">
-        <div>
-            <table id="playerGrid">
-                <caption>Player selector</caption>
-            </table>
+
+    <div>
+        <label>Player selector</label>
+        <div class="">
+            <div class="" style="display:inline-block">
+                <table id="playerGrid">
+                </table>
+
+            </div>
+
         </div>
-        <div>
-            <table id="raidComp">
-                <caption>Raid composition</caption>
-            </table>
-            <button class="btn btn-primary" onclick="reset()">Clear Raid</button>
-        </div>
-        <div>
-            <label>
-                Spec counter
-            </label>
+        <div style="flex: auto">
             <ul id="raidStructure">
             </ul>
             <input type="hidden" id="totalRaidComp" />
         </div>
+
+        <div class="" style="display:inline-block">
+            <label>Raid composition</label>
+            <table id="raidComp">
+            </table>
+        </div>
+        <div class="container">
+
+            <button class="btn btn-primary" onclick="reset()">Clear Raid</button>
+        </div>
+
     </div>
     <div class="container buffListStyles">
-        <div style="display:inline-flex">
-            <div style="margin-left: 15px">
-                <!--<button id="123123" type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
-                    Tooltip with HTML
-                </button>-->
-                <label>
-                    Raid Buffs
-                </label>
-                <ul id="raidBuffList" class="staticBuffList">
-                </ul>
+        <label>
+            Raid Buffs
+        </label>
+        <ul id="raidBuffList" class="staticBuffList">
+        </ul>
 
+    </div>
+    <div class="container">
+        <div style="column-count:3">
+            <div>
+                <label>
+                    Buff tracker
+                </label>
+                <ul id="raidBuffs">
+                </ul>
+                <label>
+                    De-Buff tracker
+                </label>
+                <ul id="raidDeBuffs">
+                </ul>
             </div>
         </div>
     </div>
-
-    <div style="display:inline-flex">
-        <div style="margin-left: 15px">
-            <label>
-                Buff tracker
-            </label>
-            <ul id="raidBuffs">
-            </ul>
-        </div>
-        <div style="margin-left: 15px">
-            <label>
-                De-Buff tracker
-            </label>
-            <ul id="raidDeBuffs">
-            </ul>
-        </div>
     </div>
-
+    </div>
     <footer>
         <p class="copyright">
             Version 0.1.1 of the WotLK raid selector tool
@@ -107,7 +108,7 @@
         column-count: 4;
     }
 
-/*    .tooltip {
+    /*    .tooltip {
        visibility: hidden
     }*/
 </style>
@@ -120,6 +121,7 @@
 <script>var aowow_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": true }</script>
 <link rel="stylesheet" href="main.css" />
 <link rel="stylesheet" href="./CSS/customToolTip.css">
+<script src="WotLK Raid Tables.js"></script>
 <script src="WotLK Models.js"></script>
 <script src="WotLK Raid Tables.js"></script>
 <script src="DragUtils.js"></script>

@@ -17,7 +17,7 @@
 
         <!--Player class selector-->
         <div class="container panelSpacing" style="justify-content:space-evenly">
-            <div onclick="myFunction2(event, 3)" style="cursor:pointer; z-index:1" class=" selecterDropDown">
+            <div onclick="myFunction3(event, 3)" style="cursor:pointer; z-index:1" class=" selecterDropDown">
                 <div style="display:grid; text-align:left; margin-bottom:10px">
                     Class
                 </div>
@@ -28,7 +28,7 @@
                             <a id="playerSelectTitle">Death Knight</a>
                         </div>
                     </div>
-                    <div id="myDropdown3" style="position:absolute" class="dropdown-content ">
+                    <div id="myDropdown3" style="position:absolute" class="dropdown-content">
                         <div onclick="selectNewClass(this)" data-spec="Arcane" data-class="mage" class="itemSelectBtn">
                             <a>Mage</a>
                         </div>
@@ -64,7 +64,7 @@
 
             </div>
 
-            <div onclick="myFunction2(event, 4)" class="sliderLayout" style="cursor: pointer; z-index: 1; display: grid; text-align: left">
+            <div onclick="myFunction3(event, 4)" class="sliderLayout" style="cursor: pointer; z-index: 1; display: grid; text-align: left">
                 <div style="margin-bottom:10px">
                     Spec
                 </div>
@@ -88,118 +88,120 @@
 
 
         <!--Filters-->
-        <div class="" style="margin-bottom:60px; margin-top:30px; font-size:13px">
-            <div class="col-12 row container panelSpacingg" style="text-align: justify; justify-content: center;">
-                <label class="col sliderLayout">
-                    Pre-Raid
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="preRaidFilter" type="checkbox" value="true" checked>
-                        <span class="slider round"></span>
+        <div class="container panelSpacing" style="justify-content:space-evenly">
+            <div style="margin-bottom:60px; margin-top:30px; font-size:13px">
+                <div class="container panelSpacing" style="justify-content: center;">
+                    <label class="sliderLayout">
+                        Pre-Raid
+                        <label class="switch">
+                            <input onclick="setFilters(this)" id="preRaidFilter" type="checkbox" value="true" checked>
+                            <span class="slider round"></span>
+                        </label>
                     </label>
-                </label>
-                <label class="col sliderLayout">
-                    Naxx
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="naxFilter" type="checkbox" value="true" checked>
-                        <span class="slider round"></span>
+                    <label class="sliderLayout">
+                        Naxx
+                        <label class="switch">
+                            <input onclick="setFilters(this)" id="naxFilter" type="checkbox" value="true" checked>
+                            <span class="slider round"></span>
+                        </label>
                     </label>
-                </label>
-                <label class="col sliderLayout">
-                    VoA
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="voaFilter" type="checkbox" value="false">
-                        <span class="slider round"></span>
+                    <label class="sliderLayout">
+                        VoA
+                        <label class="switch">
+                            <input onclick="setFilters(this)" id="voaFilter" type="checkbox" value="false">
+                            <span class="slider round"></span>
+                        </label>
                     </label>
-                </label>
-                <label class="col sliderLayout">
-                    <label>Onyxia</label>
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="onyxiaFilter" type="checkbox" value="false">
-                        <span class="slider round"></span>
+                    <label class="sliderLayout">
+                        <label>Onyxia</label>
+                        <label class="switch">
+                            <input onclick="setFilters(this)" id="onyxiaFilter" type="checkbox" value="false">
+                            <span class="slider round"></span>
+                        </label>
                     </label>
-                </label>
-                <label class="col sliderLayout">
-                    <label>Obsidian</label>
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="obsidianFilter" type="checkbox" value="false">
-                        <span class="slider round"></span>
+                    <label class="sliderLayout">
+                        <label>Obsidian</label>
+                        <label class="switch">
+                            <input onclick="setFilters(this)" id="obsidianFilter" type="checkbox" value="false">
+                            <span class="slider round"></span>
+                        </label>
                     </label>
-                </label>
-                <label class="col sliderLayout">
-                    <label>EoE</label>
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="eoeFilter" type="checkbox" value="false">
-                        <span class="slider round"></span>
+                    <label class="sliderLayout">
+                        <label>EoE</label>
+                        <label class="switch">
+                            <input onclick="setFilters(this)" id="eoeFilter" type="checkbox" value="false">
+                            <span class="slider round"></span>
+                        </label>
                     </label>
-                </label>
-                <label class="col sliderLayout">
-                    Ulduar
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="uldarFilter" type="checkbox" value="false">
-                        <span class="slider round"></span>
+                    <label class="sliderLayout">
+                        Ulduar
+                        <label class="switch">
+                            <input onclick="setFilters(this)" id="uldarFilter" type="checkbox" value="false">
+                            <span class="slider round"></span>
+                        </label>
                     </label>
-                </label>
 
-                <label class="col sliderLayout">
-                    ToC
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="tocFilter" type="checkbox" value="false">
-                        <span class="slider round"></span>
+                    <label class="sliderLayout">
+                        ToC
+                        <label class="switch">
+                            <input onclick="setFilters(this)" id="tocFilter" type="checkbox" value="false">
+                            <span class="slider round"></span>
+                        </label>
                     </label>
-                </label>
-                <label class="col sliderLayout">
-                    ICC
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="iccFilter" type="checkbox" value="false">
-                        <span class="slider round"></span>
+                    <label class="sliderLayout">
+                        ICC
+                        <label class="switch">
+                            <input onclick="setFilters(this)" id="iccFilter" type="checkbox" value="false">
+                            <span class="slider round"></span>
+                        </label>
                     </label>
-                </label>
-                <label class="col sliderLayout">
-                    Ruby Sanctum
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="rubysanctumFilter" type="checkbox" value="false">
-                        <span class="slider round"></span>
+                    <label class="sliderLayout">
+                        Ruby Sanctum
+                        <label class="switch">
+                            <input onclick="setFilters(this)" id="rubysanctumFilter" type="checkbox" value="false">
+                            <span class="slider round"></span>
+                        </label>
                     </label>
-                </label>
-            </div>
-            <div class="col-6 row container panelSpacing" style="text-align: justify; display: inline-flex; ">
-                <label class="col sliderLayout">
-                    Crafted
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="craftedFilter" type="checkbox" value="true" checked>
-                        <span class="slider round"></span>
+                </div>
+                <div class="container panelSpacing" style="justify-content: center;">
+                    <label class="sliderLayout">
+                        Crafted
+                        <label class="switch">
+                            <input onclick="setFilters(this)" id="craftedFilter" type="checkbox" value="true" checked>
+                            <span class="slider round"></span>
+                        </label>
                     </label>
-                </label>
-                <label class="col sliderLayout">
-                    10
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="filter10" type="checkbox" value="true" checked>
-                        <span class="slider round"></span>
+                    <label class="sliderLayout">
+                        10
+                        <label class="switch">
+                            <input onclick="setFilters(this)" id="filter10" type="checkbox" value="true" checked>
+                            <span class="slider round"></span>
+                        </label>
                     </label>
-                </label>
 
-                <label class="col sliderLayout">
-                    25
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="filter25" type="checkbox" value="true" checked>
-                        <span class="slider round"></span>
+                    <label class="sliderLayout">
+                        25
+                        <label class="switch">
+                            <input onclick="setFilters(this)" id="filter25" type="checkbox" value="true" checked>
+                            <span class="slider round"></span>
+                        </label>
                     </label>
-                </label>
-                <label class="col sliderLayout">
-                    Heroic
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="heroicFilter" type="checkbox" value="false">
-                        <span class="slider round"></span>
+                    <label class="sliderLayout">
+                        Heroic
+                        <label class="switch">
+                            <input onclick="setFilters(this)" id="heroicFilter" type="checkbox" value="false">
+                            <span class="slider round"></span>
+                        </label>
                     </label>
-                </label>
-                <label class="col sliderLayout">
-                    HM
-                    <label class="switch">
-                        <input onclick="setFilters(this)" id="hardmodeFilter" type="checkbox" value="false">
-                        <span class="slider round"></span>
+                    <label class="sliderLayout">
+                        Hard Mode
+                        <label class="switch">
+                            <input onclick="setFilters(this)" id="hardmodeFilter" type="checkbox" value="false">
+                            <span class="slider round"></span>
+                        </label>
                     </label>
-                </label>
 
+                </div>
             </div>
         </div>
 
@@ -221,8 +223,8 @@
     }
 </style>
 
-<script src="./Cache/ItemCache.js"></script>
-<script src="./Cache/ItemSource.js"></script>
+<script src="Cache/ItemCache.js"></script>
+<script src="Cache/ItemSource.js"></script>
 
 <script type="text/javascript" src="https://wotlk.evowow.com/static/widgets/power.js"></script>
 <script>var aowow_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": true }</script>
